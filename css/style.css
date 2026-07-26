@@ -1,0 +1,94 @@
+/* ==========================================================
+   LUQUINN'S BAKES - shared stylesheet
+   Loaded by all pages, after Bootstrap
+   ========================================================== */
+
+/* Colour variables, same idea as the CSS Variables section in our notes.
+   Change a value here and it updates everywhere it's used. */
+:root {
+  --cream: #FFFAE8;
+  --brown: #5A4423;
+  --brown-light: #86703F;
+  --yellow: #F2C94C;
+  --bar-text: #E3D6B8;
+}
+
+/* ===== PAGE BASICS ===== */
+body {
+  background-color: var(--cream);
+  color: var(--brown-light);
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  color: var(--brown);
+}
+
+main {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+/* ===== NAVIGATION ===== */
+.navbar {
+  background-color: var(--brown);
+}
+
+.navbar-brand {
+  color: var(--cream);
+}
+
+.navbar .nav-link {
+  color: var(--bar-text);
+}
+
+/* current page link, highlighted in yellow */
+.navbar .nav-link.active {
+  color: var(--yellow);
+}
+
+/* ===== TABLES ===== */
+.table thead th {
+  background-color: var(--brown);
+  color: var(--cream);
+  border: 1px solid var(--brown);
+}
+
+.table td {
+  color: var(--brown-light);
+}
+
+/* ===== FORMS ===== */
+.form-label {
+  color: var(--brown);
+}
+
+.form-control, .form-select {
+  background-color: #FFFFFF;
+  border: 1px solid #DCC7AC;
+  color: var(--brown);
+}
+
+/* the outline when a field is clicked into - :focus is in our notes */
+.form-control:focus, .form-select:focus {
+  border: 1px solid var(--yellow);
+}
+
+/* ===== BUTTONS ===== */
+.btn-dark {
+  background-color: var(--brown);
+  border: 1px solid var(--brown);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: var(--brown);
+  color: var(--bar-text);
+  padding: 1.2rem;
+  margin-top: 2rem;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}

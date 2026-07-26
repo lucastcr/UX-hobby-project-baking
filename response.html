@@ -62,7 +62,49 @@
     <p>LUQUINN'S BAKES - 2026</p>
   </footer>
 
+  <!-- Reads the form data from the URL and shows it in the table above.
+       Same method as the class FormProcessor example. -->
+  <script>
+    // location.search is the part of the URL after the "?"
+    // e.g. "?name=Lucas&email=lucas%40gmail.com&level=Beginner"
+    var formData = location.search;
+    formData = formData.substring(1);          // remove the leading "?"
+
+    // GET turns spaces into "+", so change them back to spaces
+    while (formData.indexOf("+") != -1) {
+      formData = formData.replace("+", " ");
+    }
+
+    formData = unescape(formData);             // decode %40 into @, etc.
+    var formArray = formData.split("&");        // ["name=Lucas", "email=..."]
+
+    // go through each pair, split it on "=", and write the value
+    // into the matching cell by its id
+    for (var i = 0; i < formArray.length; i++) {
+      var pair = formArray[i].split("=");       // ["name", "Lucas"]
+      var field = pair[0];
+      var value = pair[1];
+
+      switch (field) {
+        case "name":
+          document.getElementById("outName").innerHTML = value;
+          break;
+        case "email":
+          document.getElementById("outEmail").innerHTML = value;
+          break;
+        case "level":
+          document.getElementById("outLevel").innerHTML = value;
+          break;
+        case "baketype":
+          document.getElementById("outBake").innerHTML = value;
+          break;
+        case "message":
+          document.getElementById("outMessage").innerHTML = value;
+          break;
+      }
+    }
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/script.js"></script>
 </body>
 </html>
