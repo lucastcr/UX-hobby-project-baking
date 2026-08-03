@@ -11,7 +11,7 @@
 
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="index.html">LUQUINN'S BAKES</a>
+      <a class="navbar-brand" href="ahomepage.html">LUQUINN'S BAKES</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -29,6 +29,50 @@
   <main class="container">
     <h1>Baking guide</h1>
     <p>Reference chart for the bakes on this site.</p>
+
+<section class="mb-4">
+      <h2>Recipe scaler — chocolate chip cookies</h2>
+      <p>Base recipe makes 12 cookies. Change the number to scale the ingredients.</p>
+
+      <label for="servings">Number of cookies:</label>
+      <input type="number" id="servings" value="12" min="1">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Ingredient</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- data-base holds the amount for 12 cookies -->
+          <tr>
+            <td>Butter (g)</td>
+            <td><span class="qty" data-base="226"></span></td>
+          </tr>
+          <tr>
+            <td>Brown sugar (g)</td>
+            <td><span class="qty" data-base="210"></span></td>
+          </tr>
+          <tr>
+            <td>Granulated sugar (g)</td>
+            <td><span class="qty" data-base="100"></span></td>
+          </tr>
+          <tr>
+            <td>Flour (g)</td>
+            <td><span class="qty" data-base="240"></span></td>
+          </tr>
+          <tr>
+            <td>Egg</td>
+            <td><span class="qty" data-base="1"></span></td>
+          </tr>
+          <tr>
+            <td>Chocolate (g)</td>
+            <td><span class="qty" data-base="227"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
     <!-- table-striped adds alternating row colours
          table-responsive wrapper lets it scroll sideways on narrow phones -->
@@ -56,7 +100,7 @@
           <tr>
             <td>Chocolate Chip Cookies</td>
             <td>Easy</td>
-            <td>2h 45min</td>
+            <td>2h 45 min</td>
             <td>25 min</td>
             <td>12 cookies</td>
             <td>Baking tray, mixing bowls</td>
@@ -94,6 +138,7 @@
     <p>LUQUINN'S BAKES - 2026</p>
   </footer>
 
+  <script src="js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
