@@ -92,3 +92,24 @@ footer p {
   margin: 0;
   font-size: 0.9rem;
 }
+
+/* ===== CARDS ===== */
+.card {
+  border: 1px solid #E5D3B3;
+  border-radius: 8px;
+}
+
+.card-img-top {
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid #E5D3B3;
+}
+
+.card-body {
+  background-color: #FFFFFF;
+  border-radius: 0 0 8px 8px;
+}
+
+.card-title {
+  color: var(--brown);
+  margin: 0;
+}
