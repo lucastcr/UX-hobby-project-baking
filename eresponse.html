@@ -1,110 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank you | LUQUINN'S BAKES</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LUQUINN'S BAKES | Response</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
 
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">LUQUINN'S BAKES</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="ahomepage.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="brecipes.html">Recipes</a></li>
-          <li class="nav-item"><a class="nav-link" href="cguide.html">Guide</a></li>
-          <li class="nav-item"><a class="nav-link" href="dcontact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <!-- ================= NAVBAR ================= -->
 
-  <main class="container">
-    <h1>Thanks for signing up</h1>
-    <p>Here's what you sent us.</p>
+    <nav class="navbar navbar-expand-lg">
 
-    <table class="table">
-      <tbody>
-        <tr>
-          <th>Name</th>
-          <td id="outName"></td>
-        </tr>
-        <tr>
-          <th>Email</th>
-          <td id="outEmail"></td>
-        </tr>
-        <tr>
-          <th>Skill level</th>
-          <td id="outLevel"></td>
-        </tr>
-        <tr>
-          <th>Bake</th>
-          <td id="outBake"></td>
-        </tr>
-        <tr>
-          <th>Message</th>
-          <td id="outMessage"></td>
-        </tr>
-      </tbody>
-    </table>
+        <div class="container">
 
-    <a href="index.html" class="btn btn-dark">Back to home</a>
-  </main>
+            <a class="navbar-brand" href="ahomepage.html">
 
-  <footer class="text-center">
-    <p>LUQUINN'S BAKES - 2026</p>
-  </footer>
+                LUQUINN'S BAKES
 
-  <!-- Reads the form data from the URL and shows it in the table above.
-       Same method as the class FormProcessor example. -->
-  <script>
-    // location.search is the part of the URL after the "?"
-    // e.g. "?name=Lucas&email=lucas%40gmail.com&level=Beginner"
-    var formData = location.search;
-    formData = formData.substring(1);          // remove the leading "?"
+            </a>
 
-    // GET turns spaces into "+", so change them back to spaces
-    while (formData.indexOf("+") != -1) {
-      formData = formData.replace("+", " ");
-    }
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
 
-    formData = unescape(formData);             // decode %40 into @, etc.
-    var formArray = formData.split("&");        // ["name=Lucas", "email=..."]
+                <span class="navbar-toggler-icon"></span>
 
-    // go through each pair, split it on "=", and write the value
-    // into the matching cell by its id
-    for (var i = 0; i < formArray.length; i++) {
-      var pair = formArray[i].split("=");       // ["name", "Lucas"]
-      var field = pair[0];
-      var value = pair[1];
+            </button>
 
-      switch (field) {
-        case "name":
-          document.getElementById("outName").innerHTML = value;
-          break;
-        case "email":
-          document.getElementById("outEmail").innerHTML = value;
-          break;
-        case "level":
-          document.getElementById("outLevel").innerHTML = value;
-          break;
-        case "baketype":
-          document.getElementById("outBake").innerHTML = value;
-          break;
-        case "message":
-          document.getElementById("outMessage").innerHTML = value;
-          break;
-      }
-    }
-  </script>
+            <div class="collapse navbar-collapse" id="navbarNav">
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="ahomepage.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="brecipes.html">Recipes</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="cguide.html">Guide</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="dcontact.html">Contact</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <main>
+
+        <section class="container my-5 text-center">
+
+            <h1>
+
+                Thank You!
+
+            </h1>
+
+            <p>
+
+                Your message has been submitted successfully.
+
+            </p>
+
+        </section>
+
+        <section class="container mb-5">
+
+            <h2 class="text-center mb-4">
+
+                Submission Summary
+
+            </h2>
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered">
+
+                    <tbody>
+
+                        <tr>
+
+                            <th>Name</th>
+
+                            <td id="displayName"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Email</th>
+
+                            <td id="displayEmail"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Phone Number</th>
+
+                            <td id="displayPhone"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Favourite Dessert</th>
+
+                            <td id="displayDessert"></td>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>Message</th>
+
+                            <td id="displayMessage"></td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="text-center mt-4">
+
+                <a href="ahomepage.html"
+                    class="btn btn-dark">
+
+                    Back to Home
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="container text-center">
+
+            <p>
+
+                © 2026 LUQUINN'S BAKES. All rights reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+
+    <script src="js/script.js"></script>
+
 </body>
+
 </html>
