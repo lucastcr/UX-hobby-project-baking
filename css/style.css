@@ -82,8 +82,11 @@ main {
 
 /* ===== FOOTER ===== */
 footer {
+  position: static;
+  bottom: 0;
+  width: 100%;
   background-color: var(--brown);
-  color: var(--bar-text);
+  color: var(--bar-text); 
   padding: 1.2rem;
   margin-top: 2rem;
 }
