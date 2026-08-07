@@ -130,6 +130,34 @@ main{
 
 }
 
+/* ===== Sticky footer (keeps footer at bottom on short pages) ===== */
+
+html, body{
+
+    height:100%;
+
+}
+
+body{
+
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+
+}
+
+main{
+
+    flex:1 0 auto;
+
+}
+
+footer{
+
+    flex-shrink:0;
+
+}
+
 /* ===== Footer ===== */
 
 footer{
@@ -314,5 +342,46 @@ html{
     font-size:16px;
     line-height:1.6;
     margin-bottom:6px;
+
+}
+
+.recipe-columns{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:40px;
+
+}
+
+.ingredients{
+
+    width:250px;
+
+}
+
+.method{
+
+    width:300px;
+
+}
+
+@media (max-width:768px){
+
+    .recipe-columns{
+
+        flex-direction:column;
+
+        gap:20px;
+
+    }
+
+    .ingredients,
+    .method{
+
+        width:100%;
+
+    }
 
 }

@@ -16,6 +16,48 @@
 
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+        /* ===== Ingredient converter ===== */
+        .converter{
+            max-width:none; margin:1.5rem 0 0;
+            background:#fff; border:1px solid #E5D3B3;
+            border-radius:10px; padding:1.5rem;
+        }
+        .conv-tabs{ display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.4rem; }
+        .conv-tab{
+            flex:1; min-width:120px;
+            padding:.55rem .5rem; cursor:pointer;
+            background:#F6EDCE; color:#7A6338;
+            border:1px solid #E5D3B3; border-radius:999px;
+            font-size:.9rem; font-family:inherit;
+            transition:background .15s, color .15s;
+        }
+        .conv-tab:hover{ background:#EFE0BC; }
+        .conv-tab.active{ background:#5A4423; color:#FFFAE8; border-color:#5A4423; }
+        .conv-panel{ display:flex; flex-wrap:wrap; gap:1rem; align-items:flex-end; }
+        .conv-panel[hidden]{ display:none !important; }
+        .conv-panel label{
+            flex:1; min-width:150px;
+            display:flex; flex-direction:column; gap:.35rem;
+            color:#5A4423; font-size:.9rem;
+        }
+        .conv-panel input, .conv-panel select{
+            padding:.55rem .7rem;
+            border:1px solid #DCC7AC; border-radius:6px;
+            font-size:1rem; font-family:inherit; color:#5A4423; background:#fff;
+        }
+        .conv-panel input:focus, .conv-panel select:focus{
+            outline:none; border-color:#E0A92E;
+        }
+        .conv-result{
+            flex-basis:100%; margin:.4rem 0 0; text-align:center;
+            font-size:1.4rem; color:#5A4423; font-weight:500;
+            padding-top:1rem; border-top:1px solid #F0E4C6;
+        }
+        .conv-result.is-empty{
+            font-size:1rem; color:#9C8557; font-weight:400;
+        }
+    </style>
 </head>
 
 <body>
@@ -84,6 +126,100 @@
         </section>
 
         <section class="container my-5">
+
+            <h2>
+
+                Baking Tips
+
+            </h2>
+
+            <ul>
+
+                <li>Always read the recipe before you start.</li>
+
+                <li>Use room temperature ingredients for better results.</li>
+
+                <li>Do not overmix the batter.</li>
+
+                <li>Check your bake a few minutes before the suggested time.</li>
+
+                <li>Let your baked goods cool before frosting or serving.</li>
+
+            </ul>
+
+        </section>
+
+<!-- ================= INGREDIENT CONVERTER ================= -->
+
+<section class="container my-5">
+
+    <div class="text-center">
+
+        <h2>Ingredient Converter</h2>
+
+        <p>Quickly convert common baking measurements.</p>
+
+    </div>
+
+    <div class="converter">
+
+        <div class="conv-tabs">
+            <button type="button" class="conv-tab active" data-mode="weight">Cups &rarr; Grams</button>
+            <button type="button" class="conv-tab" data-mode="volume">Tbsp/Tsp &rarr; ml</button>
+            <button type="button" class="conv-tab" data-mode="temp">&deg;C &harr; &deg;F</button>
+        </div>
+
+        <!-- Weight: cups -> grams -->
+        <div class="conv-panel" id="convWeight">
+            <label>Amount in cups
+                <input type="number" id="wtCups" min="0" step="0.25" placeholder="e.g. 1.5">
+            </label>
+            <label>Ingredient
+                <select id="wtIngredient">
+                    <option value="120">Plain flour</option>
+                    <option value="200">White sugar</option>
+                    <option value="220">Brown sugar (packed)</option>
+                    <option value="227">Butter</option>
+                    <option value="240">Milk / water</option>
+                    <option value="100">Cocoa powder</option>
+                </select>
+            </label>
+            <p class="conv-result is-empty" id="wtResult">Enter an amount to convert</p>
+        </div>
+
+        <!-- Volume: tbsp/tsp -> ml -->
+        <div class="conv-panel" id="convVolume" hidden>
+            <label>Amount
+                <input type="number" id="volAmount" min="0" step="0.5" placeholder="e.g. 2">
+            </label>
+            <label>Unit
+                <select id="volUnit">
+                    <option value="15">Tablespoons (tbsp)</option>
+                    <option value="5">Teaspoons (tsp)</option>
+                </select>
+            </label>
+            <p class="conv-result is-empty" id="volResult">Enter an amount to convert</p>
+        </div>
+
+        <!-- Temperature: C <-> F -->
+        <div class="conv-panel" id="convTemp" hidden>
+            <label>Temperature
+                <input type="number" id="tempValue" step="1" placeholder="e.g. 180">
+            </label>
+            <label>Convert
+                <select id="tempDir">
+                    <option value="c2f">&deg;C to &deg;F</option>
+                    <option value="f2c">&deg;F to &deg;C</option>
+                </select>
+            </label>
+            <p class="conv-result is-empty" id="tempResult">Enter a temperature to convert</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="container my-5">
 
             <h2 class="mb-4">
 
@@ -169,31 +305,7 @@
 
         </section>
 
-        <section class="container my-5">
-
-            <h2>
-
-                Baking Tips
-
-            </h2>
-
-            <ul>
-
-                <li>Always read the recipe before you start.</li>
-
-                <li>Use room temperature ingredients for better results.</li>
-
-                <li>Do not overmix the batter.</li>
-
-                <li>Check your bake a few minutes before the suggested time.</li>
-
-                <li>Let your baked goods cool before frosting or serving.</li>
-
-            </ul>
-
-        </section>
-        
-       <!-- ================= VIDEO ================= -->
+<!-- ================= VIDEO ================= -->
 
 <section class="container my-5">
 

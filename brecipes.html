@@ -17,6 +17,49 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+        /* ===== Simplified recipe cards ===== */
+        .simple-recipe{
+            background:#fff;
+            border:1px solid #E5D3B3;
+            border-radius:8px;
+            overflow:hidden;
+        }
+        .simple-recipe .sr-head{ display:flex; }
+        .simple-recipe .sr-img{
+            width:210px; flex-shrink:0;
+            object-fit:cover; align-self:stretch; min-height:150px;
+        }
+        .simple-recipe .sr-headtext{
+            flex:1; padding:1.5rem 1.75rem;
+            display:flex; flex-direction:column; justify-content:center;
+            border-bottom:1px solid #E5D3B3;
+        }
+        .simple-recipe .sr-headtext h2{
+            color:#5A4423; font-size:1.7rem; margin-bottom:.4rem;
+        }
+        .simple-recipe .sr-meta{ color:#86703F; font-size:.92rem; margin:0; }
+        .simple-recipe .sr-body{ display:grid; grid-template-columns:1fr 1fr; }
+        .simple-recipe .sr-col{ padding:1.5rem 1.75rem; }
+        .simple-recipe .sr-col:first-child{ border-right:1px solid #E5D3B3; }
+        .simple-recipe .sr-col h3{
+            color:#5A4423; font-size:1.2rem; margin-bottom:1rem;
+            padding-bottom:.5rem; border-bottom:1px solid #E5D3B3;
+        }
+        .simple-recipe .sr-col ul,
+        .simple-recipe .sr-col ol{ padding-left:1.2rem; margin:0; }
+        .simple-recipe .sr-col li{
+            margin-bottom:.5rem; color:#5A4423; font-size:.95rem; line-height:1.6;
+        }
+        @media (max-width:640px){
+            .simple-recipe .sr-head{ flex-direction:column; }
+            .simple-recipe .sr-img{ width:100%; height:200px; }
+            .simple-recipe .sr-body{ grid-template-columns:1fr; }
+            .simple-recipe .sr-col:first-child{
+                border-right:0; border-bottom:1px solid #E5D3B3;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -447,107 +490,46 @@ CHOCOLATE CAKE
 
 <section id="cake" class="container my-5">
 
-    <div class="card shadow-sm">
+    <article class="simple-recipe">
 
-        <div class="card-body">
-
-            <div class="row align-items-start">
-
-                <!-- Recipe Image -->
-
-                <div class="col-lg-3">
-
-                    <img src="images/choco cake square.jpeg"
-                        class="img-fluid rounded"
-                        alt="Chocolate Cake">
-
-                </div>
-
-                <!-- Recipe Details -->
-
-                <div class="col-lg-9">
-
-                    <h2>
-
-                        Chocolate Cake
-
-                    </h2>
-
-                    <p class="text-muted">
-
-                        <strong>Difficulty:</strong> Medium |
-                        <strong>Total Time:</strong> 45 mins |
-                        <strong>Makes:</strong> 1 Cake
-
-                    </p>
-
-                    <div class="row gx-3">
-
-                        <!-- Ingredients -->
-
-                        <div class="col-md-6">
-
-                            <h4>
-
-                                Ingredients
-
-                            </h4>
-
-                            <ul>
-
-                                <li>1 cup plain flour</li>
-                                <li>1½ tbsp cocoa powder</li>
-                                <li>½ tsp baking powder</li>
-                                <li>½ tsp baking soda</li>
-                                <li>1 cup sugar</li>
-                                <li>½ cup vegetable oil</li>
-                                <li>1 egg</li>
-                                <li>½ cup buttermilk</li>
-                                <li>¼ cup hot coffee</li>
-
-                            </ul>
-
-                        </div>
-
-                        <!-- Method -->
-
-                        <div class="col-md-6">
-
-                            <h4>
-
-                                Method
-
-                            </h4>
-
-                            <ol>
-
-                                <li>Preheat the oven to 175°C.</li>
-
-                                <li>Mix the flour, cocoa powder, baking powder and baking soda together.</li>
-
-                                <li>Whisk together the sugar, vegetable oil, egg, buttermilk and hot coffee.</li>
-
-                                <li>Combine the wet and dry ingredients until smooth.</li>
-
-                                <li>Pour the batter into a greased 8-inch cake tin.</li>
-
-                                <li>Bake for 40–45 minutes or until a toothpick comes out clean.</li>
-
-                                <li>Allow the cake to cool before serving or decorating.</li>
-
-                            </ol>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+        <div class="sr-head">
+            <img class="sr-img" src="images/choco cake square.jpeg" alt="Chocolate Cake">
+            <div class="sr-headtext">
+                <h2>Chocolate Cake</h2>
+                <p class="sr-meta">Difficulty: Medium &nbsp;|&nbsp; Total Time: 45 mins &nbsp;|&nbsp; Makes: 1 Cake</p>
             </div>
-
         </div>
 
-    </div>
+        <div class="sr-body">
+            <div class="sr-col">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>1 cup plain flour</li>
+                    <li>1½ tbsp cocoa powder</li>
+                    <li>½ tsp baking powder</li>
+                    <li>½ tsp baking soda</li>
+                    <li>1 cup sugar</li>
+                    <li>½ cup vegetable oil</li>
+                    <li>1 egg</li>
+                    <li>½ cup buttermilk</li>
+                    <li>¼ cup hot coffee</li>
+                </ul>
+            </div>
+            <div class="sr-col">
+                <h3>Method</h3>
+                <ol>
+                    <li>Preheat oven to 175°C.</li>
+                    <li>Mix the dry ingredients together.</li>
+                    <li>Whisk the wet ingredients together.</li>
+                    <li>Combine both mixtures until smooth.</li>
+                    <li>Pour into a greased cake tin.</li>
+                    <li>Bake for 40–45 minutes.</li>
+                    <li>Cool completely before serving.</li>
+                </ol>
+            </div>
+        </div>
+
+    </article>
 
 </section>
 
@@ -557,113 +539,50 @@ CHOCOLATE CHIP COOKIES
 
 <section id="cookies" class="container my-5">
 
-    <div class="card shadow-sm">
+    <article class="simple-recipe">
 
-        <div class="card-body">
-
-            <div class="row align-items-start">
-
-                <!-- Recipe Image -->
-
-                <div class="col-lg-3">
-
-                    <img src="images/choco cookies square.jpeg"
-                        class="img-fluid rounded"
-                        alt="Chocolate Chip Cookies">
-
-                </div>
-
-                <!-- Recipe Details -->
-
-                <div class="col-lg-9">
-
-                    <h2>
-
-                        Chocolate Chip Cookies
-
-                    </h2>
-
-                    <p class="text-muted">
-
-                        <strong>Difficulty:</strong> Easy |
-                        <strong>Total Time:</strong> 30 mins |
-                        <strong>Makes:</strong> 12 Cookies
-
-                    </p>
-
-                    <div class="row gx-3">
-
-                        <!-- Ingredients -->
-
-                        <div class="col-md-6">
-
-                            <h4>
-
-                                Ingredients
-
-                            </h4>
-
-                            <ul>
-
-                                <li>200g unsalted butter</li>
-                                <li>180g brown sugar</li>
-                                <li>70g white sugar</li>
-                                <li>1 egg</li>
-                                <li>1 egg yolk</li>
-                                <li>2 tsp vanilla extract</li>
-                                <li>240g plain flour</li>
-                                <li>1 tsp baking soda</li>
-                                <li>½ tsp salt</li>
-                                <li>115g chopped chocolate</li>
-                                <li>115g chocolate chips</li>
-
-                            </ul>
-
-                        </div>
-
-                        <!-- Method -->
-
-                        <div class="col-md-6">
-
-                            <h4>
-
-                                Method
-
-                            </h4>
-
-                            <ol>
-
-                                <li>Cream the butter, brown sugar and white sugar together.</li>
-
-                                <li>Add the egg, egg yolk and vanilla extract.</li>
-
-                                <li>Mix in the flour, baking soda and salt.</li>
-
-                                <li>Fold in the chopped chocolate and chocolate chips.</li>
-
-                                <li>Chill the dough for at least 2 hours.</li>
-
-                                <li>Preheat the oven to 180°C.</li>
-
-                                <li>Scoop the dough onto a lined baking tray.</li>
-
-                                <li>Bake for 11–13 minutes until golden.</li>
-
-                                <li>Cool on the tray for 10 minutes before serving.</li>
-
-                            </ol>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+        <div class="sr-head">
+            <img class="sr-img" src="images/choco cookies square.jpeg" alt="Chocolate Chip Cookies">
+            <div class="sr-headtext">
+                <h2>Chocolate Chip Cookies</h2>
+                <p class="sr-meta">Difficulty: Easy &nbsp;|&nbsp; Total Time: 30 mins &nbsp;|&nbsp; Makes: 12 Cookies</p>
             </div>
-
         </div>
 
-    </div>
+        <div class="sr-body">
+            <div class="sr-col">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>200g unsalted butter</li>
+                    <li>180g brown sugar</li>
+                    <li>70g white sugar</li>
+                    <li>1 egg</li>
+                    <li>1 egg yolk</li>
+                    <li>2 tsp vanilla extract</li>
+                    <li>240g plain flour</li>
+                    <li>1 tsp baking soda</li>
+                    <li>½ tsp salt</li>
+                    <li>115g chopped chocolate</li>
+                    <li>115g chocolate chips</li>
+                </ul>
+            </div>
+            <div class="sr-col">
+                <h3>Method</h3>
+                <ol>
+                    <li>Cream the butter and sugars.</li>
+                    <li>Add the egg, egg yolk and vanilla.</li>
+                    <li>Mix in the flour, baking soda and salt.</li>
+                    <li>Fold in the chocolate and chocolate chips.</li>
+                    <li>Chill the dough for 2 hours.</li>
+                    <li>Preheat the oven to 180°C.</li>
+                    <li>Scoop onto a lined baking tray.</li>
+                    <li>Bake for 11–13 minutes.</li>
+                    <li>Cool for 10 minutes before serving.</li>
+                </ol>
+            </div>
+        </div>
+
+    </article>
 
 </section>
 
@@ -673,109 +592,47 @@ CHOCOLATE CHIP MUFFINS
 
 <section id="muffins" class="container my-5">
 
-    <div class="card shadow-sm">
+    <article class="simple-recipe">
 
-        <div class="card-body">
-
-            <div class="row align-items-start">
-
-                <!-- Recipe Image -->
-
-                <div class="col-lg-3">
-
-                    <img src="images/choco muffins square.jpeg"
-                        class="img-fluid rounded"
-                        alt="Chocolate Chip Muffins">
-
-                </div>
-
-                <!-- Recipe Details -->
-
-                <div class="col-lg-9">
-
-                    <h2>
-
-                        Chocolate Chip Muffins
-
-                    </h2>
-
-                    <p class="text-muted">
-
-                        <strong>Difficulty:</strong> Easy |
-                        <strong>Total Time:</strong> 40 mins |
-                        <strong>Makes:</strong> 12 Muffins
-
-                    </p>
-
-                    <div class="row gx-3">
-
-                        <!-- Ingredients -->
-
-                        <div class="col-md-6">
-
-                            <h4>
-
-                                Ingredients
-
-                            </h4>
-
-                            <ul>
-
-                                <li>2 cups plain flour</li>
-                                <li>½ cup sugar</li>
-                                <li>2 tsp baking powder</li>
-                                <li>½ tsp salt</li>
-                                <li>1 egg</li>
-                                <li>1 cup milk</li>
-                                <li>½ cup vegetable oil</li>
-                                <li>1 tsp vanilla extract</li>
-                                <li>1 cup chocolate chips</li>
-
-                            </ul>
-
-                        </div>
-
-                        <!-- Method -->
-
-                        <div class="col-md-6">
-
-                            <h4>
-
-                                Method
-
-                            </h4>
-
-                            <ol>
-
-                                <li>Preheat the oven to 180°C.</li>
-
-                                <li>Mix the flour, sugar, baking powder and salt together.</li>
-
-                                <li>Whisk the egg, milk, oil and vanilla extract.</li>
-
-                                <li>Combine the wet and dry ingredients.</li>
-
-                                <li>Fold in the chocolate chips.</li>
-
-                                <li>Fill the muffin cases about three-quarters full.</li>
-
-                                <li>Bake for 18–20 minutes until golden.</li>
-
-                                <li>Cool before serving.</li>
-
-                            </ol>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+        <div class="sr-head">
+            <img class="sr-img" src="images/choco muffins square.jpeg" alt="Chocolate Chip Muffins">
+            <div class="sr-headtext">
+                <h2>Chocolate Chip Muffins</h2>
+                <p class="sr-meta">Difficulty: Easy &nbsp;|&nbsp; Total Time: 40 mins &nbsp;|&nbsp; Makes: 12 Muffins</p>
             </div>
-
         </div>
 
-    </div>
+        <div class="sr-body">
+            <div class="sr-col">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>2 cups plain flour</li>
+                    <li>½ cup sugar</li>
+                    <li>2 tsp baking powder</li>
+                    <li>½ tsp salt</li>
+                    <li>1 egg</li>
+                    <li>1 cup milk</li>
+                    <li>½ cup vegetable oil</li>
+                    <li>1 tsp vanilla extract</li>
+                    <li>1 cup chocolate chips</li>
+                </ul>
+            </div>
+            <div class="sr-col">
+                <h3>Method</h3>
+                <ol>
+                    <li>Preheat the oven to 180°C.</li>
+                    <li>Mix the flour, sugar, baking powder and salt.</li>
+                    <li>Whisk together the egg, milk, oil and vanilla.</li>
+                    <li>Combine the wet and dry ingredients.</li>
+                    <li>Fold in the chocolate chips.</li>
+                    <li>Fill the muffin cases about ¾ full.</li>
+                    <li>Bake for 18–20 minutes until golden.</li>
+                    <li>Cool before serving.</li>
+                </ol>
+            </div>
+        </div>
+
+    </article>
 
 </section>
 
@@ -785,109 +642,47 @@ CINNAMON ROLLS
 
 <section id="rolls" class="container my-5">
 
-    <div class="card shadow-sm">
+    <article class="simple-recipe">
 
-        <div class="card-body">
-
-            <div class="row align-items-start">
-
-                <!-- Recipe Image -->
-
-                <div class="col-lg-3">
-
-                    <img src="images/cinammon square.jpeg"
-                        class="img-fluid rounded"
-                        alt="Cinnamon Rolls">
-
-                </div>
-
-                <!-- Recipe Details -->
-
-                <div class="col-lg-9">
-
-                    <h2>
-
-                        Cinnamon Rolls
-
-                    </h2>
-
-                    <p class="text-muted">
-
-                        <strong>Difficulty:</strong> Medium |
-                        <strong>Total Time:</strong> 2 Hours |
-                        <strong>Makes:</strong> 9 Rolls
-
-                    </p>
-
-                    <div class="row gx-3">
-
-                        <!-- Ingredients -->
-
-                        <div class="col-md-6">
-
-                            <h4>
-
-                                Ingredients
-
-                            </h4>
-
-                            <ul>
-
-                                <li>3 cups plain flour</li>
-                                <li>2¼ tsp instant yeast</li>
-                                <li>¼ cup sugar</li>
-                                <li>½ tsp salt</li>
-                                <li>1 cup warm milk</li>
-                                <li>¼ cup melted butter</li>
-                                <li>1 egg</li>
-                                <li>½ cup brown sugar</li>
-                                <li>2 tsp cinnamon powder</li>
-
-                            </ul>
-
-                        </div>
-
-                        <!-- Method -->
-
-                        <div class="col-md-6">
-
-                            <h4>
-
-                                Method
-
-                            </h4>
-
-                            <ol>
-
-                                <li>Mix the flour, yeast, sugar and salt.</li>
-
-                                <li>Add the milk, butter and egg to form a dough.</li>
-
-                                <li>Knead until smooth and let it rise for 1 hour.</li>
-
-                                <li>Roll the dough into a rectangle.</li>
-
-                                <li>Spread butter and sprinkle with cinnamon sugar.</li>
-
-                                <li>Roll up tightly and slice into 9 pieces.</li>
-
-                                <li>Bake at 180°C for 20–25 minutes.</li>
-
-                                <li>Cool slightly and drizzle with icing.</li>
-
-                            </ol>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+        <div class="sr-head">
+            <img class="sr-img" src="images/cinammon square.jpeg" alt="Cinnamon Rolls">
+            <div class="sr-headtext">
+                <h2>Cinnamon Rolls</h2>
+                <p class="sr-meta">Difficulty: Medium &nbsp;|&nbsp; Total Time: 2 Hours &nbsp;|&nbsp; Makes: 9 Rolls</p>
             </div>
-
         </div>
 
-    </div>
+        <div class="sr-body">
+            <div class="sr-col">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>3 cups plain flour</li>
+                    <li>2¼ tsp instant yeast</li>
+                    <li>¼ cup sugar</li>
+                    <li>½ tsp salt</li>
+                    <li>1 cup warm milk</li>
+                    <li>¼ cup melted butter</li>
+                    <li>1 egg</li>
+                    <li>½ cup brown sugar</li>
+                    <li>2 tsp cinnamon powder</li>
+                </ul>
+            </div>
+            <div class="sr-col">
+                <h3>Method</h3>
+                <ol>
+                    <li>Mix the flour, yeast, sugar and salt.</li>
+                    <li>Add the warm milk, butter and egg.</li>
+                    <li>Knead into a smooth dough.</li>
+                    <li>Leave the dough to rise for 1 hour.</li>
+                    <li>Roll out the dough and spread the cinnamon filling.</li>
+                    <li>Roll up tightly and cut into 9 pieces.</li>
+                    <li>Bake at 180°C for 20–25 minutes.</li>
+                    <li>Cool slightly and drizzle with icing.</li>
+                </ol>
+            </div>
+        </div>
+
+    </article>
 
 </section>
 
@@ -897,110 +692,50 @@ LEMON MERINGUE PIE
 
 <section id="pie" class="container my-5">
 
-    <div class="card shadow-sm">
+    <article class="simple-recipe">
 
-        <div class="card-body">
-
-            <div class="row align-items-start">
-
-                <!-- Recipe Image -->
-
-                <div class="col-lg-3">
-
-                    <img src="images/lemon square.jpeg"
-                        class="img-fluid rounded"
-                        alt="Lemon Meringue Pie">
-
-                </div>
-
-                <!-- Recipe Details -->
-
-                <div class="col-lg-9">
-
-                    <h2>
-
-                        Lemon Meringue Pie
-
-                    </h2>
-
-                    <p class="text-muted">
-
-                        <strong>Difficulty:</strong> Hard |
-                        <strong>Total Time:</strong> 1 Hour 30 Mins |
-                        <strong>Makes:</strong> 1 Pie
-
-                    </p>
-
-                    <div class="row gx-3">
-
-                        <!-- Ingredients -->
-
-                        <div class="col-md-6">
-
-                            <h4>
-
-                                Ingredients
-
-                            </h4>
-
-                            <ul>
-
-                                <li>1 pie crust</li>
-                                <li>3 egg yolks</li>
-                                <li>1 cup sugar</li>
-                                <li>2 tbsp cornflour</li>
-                                <li>2 lemons (juice & zest)</li>
-                                <li>2 tbsp butter</li>
-                                <li>3 egg whites</li>
-                                <li>¼ cup caster sugar</li>
-
-                            </ul>
-
-                        </div>
-
-                        <!-- Method -->
-
-                        <div class="col-md-6">
-
-                            <h4>
-
-                                Method
-
-                            </h4>
-
-                            <ol>
-
-                                <li>Bake the pie crust until lightly golden.</li>
-
-                                <li>Cook the lemon filling until thickened.</li>
-
-                                <li>Pour the filling into the baked crust.</li>
-
-                                <li>Whisk the egg whites until soft peaks form.</li>
-
-                                <li>Add the caster sugar and whisk until stiff.</li>
-
-                                <li>Spread the meringue over the lemon filling.</li>
-
-                                <li>Bake until the meringue is lightly browned.</li>
-
-                                <li>Cool completely before slicing and serving.</li>
-
-                            </ol>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+        <div class="sr-head">
+            <img class="sr-img" src="images/lemon square.jpeg" alt="Lemon Meringue Pie">
+            <div class="sr-headtext">
+                <h2>Lemon Meringue Pie</h2>
+                <p class="sr-meta">Difficulty: Hard &nbsp;|&nbsp; Total Time: 1 Hour 30 Mins &nbsp;|&nbsp; Makes: 1 Pie</p>
             </div>
-
         </div>
 
-    </div>
+        <div class="sr-body">
+            <div class="sr-col">
+                <h3>Ingredients</h3>
+                <ul>
+                    <li>1 ready-made pie crust</li>
+                    <li>3 egg yolks</li>
+                    <li>1 cup sugar</li>
+                    <li>2 tbsp cornflour</li>
+                    <li>2 lemons (juice & zest)</li>
+                    <li>2 tbsp butter</li>
+                    <li>3 egg whites</li>
+                    <li>¼ cup caster sugar</li>
+                </ul>
+            </div>
+            <div class="sr-col">
+                <h3>Method</h3>
+                <ol>
+                    <li>Bake the pie crust until lightly golden.</li>
+                    <li>Cook the lemon filling until thick.</li>
+                    <li>Pour the filling into the pie crust.</li>
+                    <li>Whisk the egg whites until soft peaks form.</li>
+                    <li>Add the caster sugar and whisk until stiff peaks form.</li>
+                    <li>Spread the meringue over the lemon filling.</li>
+                    <li>Bake until the meringue is lightly browned.</li>
+                    <li>Cool completely before serving.</li>
+                </ol>
+            </div>
+        </div>
+
+    </article>
 
 </section>
+
+    </main>
 
     <!-- ================= FOOTER ================= -->
 
