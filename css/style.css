@@ -120,3 +120,37 @@ footer p {
 .featured-text{
     padding-left: 40px;
 }
+
+/* ================= Recipe Table ================= */
+
+.table{
+
+    background-color:white;
+
+}
+
+.table thead{
+
+    background-color:#6b4b21;
+
+    color:white;
+
+}
+
+.table th{
+
+    text-align:center;
+
+}
+
+.table td{
+
+    vertical-align:middle;
+
+}
+
+.table-hover tbody tr:hover{
+
+    background-color:#f8f2e7;
+
+}
