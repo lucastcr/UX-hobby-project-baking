@@ -1,156 +1,318 @@
 /* ==========================================================
-   LUQUINN'S BAKES - shared stylesheet
-   Loaded by all pages, after Bootstrap
-   ========================================================== */
+   LUQUINN'S BAKES - Shared Stylesheet
+========================================================== */
 
-/* Colour variables, same idea as the CSS Variables section in our notes.
-   Change a value here and it updates everywhere it's used. */
-:root {
-  --cream: #FFFAE8;
-  --brown: #5A4423;
-  --brown-light: #86703F;
-  --yellow: #F2C94C;
-  --bar-text: #E3D6B8;
+/* ===== Colour Variables ===== */
+
+:root{
+
+    --cream:#FFFAE8;
+    --brown:#5A4423;
+    --brown-light:#86703F;
+    --yellow:#F2C94C;
+    --bar-text:#E3D6B8;
+
 }
 
-/* ===== PAGE BASICS ===== */
-body {
-  background-color: var(--cream);
-  color: var(--brown-light);
-  font-family: Arial, sans-serif;
+/* ===== Page Basics ===== */
+
+body{
+
+    background-color:var(--cream);
+    color:var(--brown-light);
+    font-family:Arial, sans-serif;
+
 }
 
-h1, h2, h3 {
-  color: var(--brown);
+h1,
+h2,
+h3{
+
+    color:var(--brown);
+
 }
 
-main {
-  padding-top: 2rem;
-  padding-bottom: 3rem;
+main{
+
+    padding-top:2rem;
+    padding-bottom:3rem;
+
 }
 
-/* ===== NAVIGATION ===== */
-.navbar {
-  background-color: var(--brown);
+/* ===== Navigation ===== */
+
+.navbar{
+
+    background-color:var(--brown);
+
 }
 
-.navbar-brand {
-  color: var(--cream);
+.navbar-brand{
+
+    color:var(--cream);
+
 }
 
-.navbar .nav-link {
-  color: var(--bar-text);
+.navbar .nav-link{
+
+    color:var(--bar-text);
+
 }
 
-/* current page link, highlighted in yellow */
-.navbar .nav-link.active {
-  color: var(--yellow);
+.navbar .nav-link.active{
+
+    color:var(--yellow);
+
 }
 
-/* ===== TABLES ===== */
-.table thead th {
-  background-color: var(--brown);
-  color: var(--cream);
-  border: 1px solid var(--brown);
+/* ===== Buttons ===== */
+
+.btn-dark{
+
+    background-color:var(--brown);
+    border:1px solid var(--brown);
+
 }
 
-.table td {
-  color: var(--brown-light);
+.btn-dark:hover{
+
+    background-color:var(--brown-light);
+    border-color:var(--brown-light);
+
 }
 
-/* ===== FORMS ===== */
-.form-label {
-  color: var(--brown);
-}
-
-.form-control, .form-select {
-  background-color: #FFFFFF;
-  border: 1px solid #DCC7AC;
-  color: var(--brown);
-}
-
-/* the outline when a field is clicked into - :focus is in our notes */
-.form-control:focus, .form-select:focus {
-  border: 1px solid var(--yellow);
-}
-
-/* ===== BUTTONS ===== */
-.btn-dark {
-  background-color: var(--brown);
-  border: 1px solid var(--brown);
-}
-
-/* ===== FOOTER ===== */
-footer {
-  position: static;
-  bottom: 0;
-  width: 100%;
-  background-color: var(--brown);
-  color: var(--bar-text); 
-  padding: 1.2rem;
-  margin-top: 2rem;
-}
-
-footer p {
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-/* ===== CARDS ===== */
-.card {
-  border: 1px solid #E5D3B3;
-  border-radius: 8px;
-}
-
-.card-img-top {
-  border-radius: 8px 8px 0 0;
-  border-bottom: 1px solid #E5D3B3;
-}
-
-.card-body {
-  background-color: #FFFFFF;
-  border-radius: 0 0 8px 8px;
-}
-
-.card-title {
-  color: var(--brown);
-  margin: 0;
-}
-
-.featured-text{
-    padding-left: 40px;
-}
-
-/* ================= Recipe Table ================= */
+/* ===== Tables ===== */
 
 .table{
 
-    background-color:white;
+    background:white;
 
 }
 
-.table thead{
+.table thead th{
 
-    background-color:#6b4b21;
-
-    color:white;
-
-}
-
-.table th{
-
+    background-color:var(--brown);
+    color:var(--cream);
+    border:1px solid var(--brown);
     text-align:center;
 
 }
 
 .table td{
 
+    color:var(--brown-light);
     vertical-align:middle;
 
 }
 
-.table-hover tbody tr:hover{
+/* ===== Forms ===== */
 
-    background-color:#f8f2e7;
+.form-label{
+
+    color:var(--brown);
+
+}
+
+.form-control,
+.form-select{
+
+    background:white;
+    border:1px solid #DCC7AC;
+    color:var(--brown);
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    border:1px solid var(--yellow);
+    box-shadow:none;
+
+}
+
+/* ===== Footer ===== */
+
+footer{
+
+    width:100%;
+    background-color:var(--brown);
+    color:var(--bar-text);
+    padding:1.2rem;
+    margin-top:2rem;
+
+}
+
+footer p{
+
+    margin:0;
+    font-size:0.9rem;
+
+}
+
+/* ===== Cards ===== */
+
+.card{
+
+    border:1px solid #E5D3B3;
+    border-radius:12px;
+
+}
+
+.card-img-top{
+
+    border-radius:12px 12px 0 0;
+    border-bottom:1px solid #E5D3B3;
+
+}
+
+.card-body{
+
+    padding:40px;
+
+}
+
+.card-title{
+
+    color:var(--brown);
+
+}
+
+.card img{
+
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:10px;
+
+}
+
+.card .col-lg-8{
+
+    padding-left:20px;
+
+}
+
+.card .row{
+
+    align-items:flex-start;
+
+}
+
+.card h2{
+
+    color:var(--brown);
+    font-size:28px;
+    margin-bottom:10px;
+
+}
+
+.card h4{
+
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:15px;
+
+}
+
+.card ul,
+.card ol{
+
+    padding-left:20px;
+
+}
+
+.card li{
+
+    font-size:15px;
+    line-height:1.7;
+    margin-bottom:6px;
+
+}
+
+#cake,
+#cookies,
+#muffins,
+#rolls,
+#pie{
+
+    scroll-margin-top:90px;
+
+}
+
+/* ===== Recipe Section ===== */
+
+.featured-text{
+
+    padding-left:40px;
+
+}
+
+.text-muted{
+
+    margin-bottom:30px;
+
+}
+
+/* ===== Smooth Scrolling ===== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width:992px){
+
+    .featured-text{
+
+        padding-left:0;
+        padding-top:25px;
+
+    }
+
+    .card h2{
+
+        font-size:1.6rem;
+
+    }
+
+}
+
+/* ================= Recipe Content ================= */
+
+.recipe-content h2{
+
+    margin-bottom:10px;
+
+}
+
+.recipe-content .text-muted{
+
+    font-size:14px;
+    margin-bottom:25px;
+
+}
+
+.recipe-content h4{
+
+    font-size:1.3rem;
+    margin-bottom:12px;
+
+}
+
+.recipe-content ul,
+.recipe-content ol{
+
+    padding-left:20px;
+
+}
+
+.recipe-content li{
+
+    font-size:16px;
+    line-height:1.6;
+    margin-bottom:6px;
 
 }
