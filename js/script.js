@@ -186,3 +186,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
+// ==========================================================
+// Response Page - Fill Submission Summary from URL
+// ==========================================================
+
+(function () {
+
+    // Only run if the summary table exists (i.e. on eresponse.html)
+    const nameCell = document.getElementById("displayName");
+    if (!nameCell) {
+        return;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+
+    function setCell(id, value) {
+        const cell = document.getElementById(id);
+        if (cell) {
+            cell.textContent = (value && value.trim() !== "") ? value : "—";
+        }
+    }
+
+    setCell("displayName", params.get("name"));
+    setCell("displayEmail", params.get("email"));
+    setCell("displayPhone", params.get("phone"));
+    setCell("displayTopic", params.get("topic"));
+    setCell("displayMessage", params.get("message"));
+
+})();
