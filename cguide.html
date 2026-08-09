@@ -16,55 +16,6 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <style>
-        /* ===== Ingredient converter ===== */
-        .converter{
-            max-width:none; margin:1.5rem 0 0;
-            background:#fff; border:1px solid #E5D3B3;
-            border-radius:10px; padding:1.5rem;
-        }
-        .conv-tabs{ display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.4rem; }
-        .conv-tab{
-            flex:1; min-width:120px;
-            padding:.55rem .5rem; cursor:pointer;
-            background:#F6EDCE; color:#7A6338;
-            border:1px solid #E5D3B3; border-radius:999px;
-            font-size:.9rem; font-family:inherit;
-            transition:background .15s, color .15s;
-        }
-        .conv-tab:hover{ background:#EFE0BC; }
-        .conv-tab.active{ background:#5A4423; color:#FFFAE8; border-color:#5A4423; }
-        .conv-panel{ display:flex; flex-wrap:wrap; gap:1rem; align-items:flex-end; }
-        .conv-panel[hidden]{ display:none !important; }
-        .conv-panel label{
-            flex:1; min-width:150px;
-            display:flex; flex-direction:column; gap:.35rem;
-            color:#5A4423; font-size:.9rem;
-        }
-        .conv-panel input, .conv-panel select{
-            padding:.55rem .7rem;
-            border:1px solid #DCC7AC; border-radius:6px;
-            font-size:1rem; font-family:inherit; color:#5A4423; background:#fff;
-        }
-        .conv-panel input:focus, .conv-panel select:focus{
-            outline:none; border-color:#E0A92E;
-        }
-        .conv-result{
-            flex-basis:100%; margin:.4rem 0 0; text-align:center;
-            font-size:1.4rem; color:#5A4423; font-weight:500;
-            padding-top:1rem; border-top:1px solid #F0E4C6;
-        }
-        .conv-result.is-empty{
-            font-size:1rem; color:#9C8557; font-weight:400;
-        }
-        .video-credit{
-            text-align:center;
-            font-size:.85rem;
-            color:#9C8557;
-            margin-top:1.5rem;
-        }
-        .video-credit a{ color:#7A6338; }
-    </style>
 </head>
 
 <body>

@@ -27,14 +27,15 @@ const bakingTips = [
 
 ];
 
+// Find the tip placeholder. It only exists on the page that shows a tip,
+// so we check it exists first (prevents errors on the other pages).
 let tipText = document.getElementById("tipText");
 
 if (tipText) {
-
+    // Math.random() gives 0-1; times the array length and floored
+    // gives a random whole-number index into the tips array.
     let randomNumber = Math.floor(Math.random() * bakingTips.length);
-
     tipText.innerHTML = bakingTips[randomNumber];
-
 }
 
 
@@ -43,55 +44,54 @@ if (tipText) {
 // Contact Form Validation
 // ==========================================================
 
+// Runs when the contact form is submitted (see onsubmit in dcontact.html).
+// Returns false to STOP the form submitting if a field is invalid,
+// or true to allow it through to the response page.
 function validateForm() {
 
+    // Read what the user typed into each field
     let name = document.getElementById("name").value;
-
     let email = document.getElementById("email").value;
-
     let message = document.getElementById("message").value;
 
+    // The paragraph where we display the error or success message
     let response = document.getElementById("response");
 
-    if (name == "") {
-
+    // Name must not be blank.
+    // We use === (strict equality) which checks value AND type.
+    if (name === "") {
         response.innerHTML = "Please enter your name.";
-
-        return false;
-
+        return false; // stops the form from submitting
     }
 
-    if (email == "") {
-
+    // Email must not be blank
+    if (email === "") {
         response.innerHTML = "Please enter your email.";
-
         return false;
-
     }
 
-    if (email.indexOf("@") == -1) {
-
+    // Simple email check: it must contain an "@".
+    // indexOf returns -1 when "@" is not found in the string.
+    if (email.indexOf("@") === -1) {
         response.innerHTML = "Please enter a valid email address.";
-
         return false;
-
     }
 
-    if (message == "") {
-
+    // Message must not be blank
+    if (message === "") {
         response.innerHTML = "Please enter your message.";
-
         return false;
-
     }
 
+    // All checks passed - allow the form to submit
     response.innerHTML = "Form submitted successfully!";
-
     return true;
-
 }
 
-/* ===== Ingredient Converter (Baking Guide) ===== */
+/* ===== Ingredient Converter (Baking Guide) =====
+   Waits until the page HTML has loaded, then sets up the three converter
+   tabs (weight / volume / temperature). Each result updates live as the
+   user types, using input/change event listeners. */
 document.addEventListener("DOMContentLoaded", function () {
 
     const tabs = document.querySelectorAll(".conv-tab");
