@@ -6,60 +6,23 @@
 
 
 // ==========================================================
-// Random Baking Tip
-// ==========================================================
-
-const bakingTips = [
-
-    "Always preheat your oven before baking.",
-
-    "Measure ingredients carefully for accurate results.",
-
-    "Use room temperature eggs and butter for smoother batter.",
-
-    "Do not overmix cake or muffin batter.",
-
-    "Let cakes cool completely before decorating.",
-
-    "Line baking trays with baking paper for easy cleanup.",
-
-    "Test cakes with a toothpick before removing them from the oven."
-
-];
-// const declares a constant — a variable whose reference won't be reassigned. 
-// bakingTips is an array (the [ ]) holding seven strings. 
-// Each string is one tip, separated by commas.
-
-// Find the tip placeholder. It only exists on the page that shows a tip,
-// so we check it exists first (prevents errors on the other pages).
-let tipText = document.getElementById("tipText");
-// let declares a variable that can be reassigned. 
-// document.getElementById("tipText") searches the page for the element whose id is tipText and returns it. 
-// On pages that don't have that element, this returns null. 
-// document is the page; getElementById is the standard way JS reaches into the HTML.
-
-if (tipText) {
-    // Math.random() gives 0-1; times the array length and floored
-    // gives a random whole-number index into the tips array.
-    let randomNumber = Math.floor(Math.random() * bakingTips.length);
-    tipText.innerHTML = bakingTips[randomNumber];
-}
-
-
-
-// ==========================================================
 // Contact Form Validation
 // ==========================================================
 
 // Runs when the contact form is submitted (see onsubmit in dcontact.html).
 // Returns false to STOP the form submitting if a field is invalid,
 // or true to allow it through to the response page.
-function validateForm() {
+function validateForm() {       
+    // Defines a function named validateForm. 
+    // Defining it doesn't run it — it runs when called, which happens via onsubmit="return validateForm()" on the form in dcontact.html.
 
-    // Read what the user typed into each field
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
     let message = document.getElementById("message").value;
+    // document is the page. getElementById("name") finds the input whose id is name. 
+    // .value reads the text the user typed into it. 
+    // So these three lines pull the current Name, Email, and Message contents into variables. 
+    // Point to note: getElementById gives you the element; .value gives you what's inside it.
 
     // The paragraph where we display the error or success message
     let response = document.getElementById("response");
