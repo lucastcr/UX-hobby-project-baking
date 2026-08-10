@@ -1,20 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>     <!-- Declares this is an HTML5 document -->
+<html lang="en">    <!-- states the language is English -->
 
-<head>
+<head>      <!-- Container for metadata (things about the page that aren't visible content) -->
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">      <!-- so special characters (like the → arrows and °C symbol in your converter) display correctly. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">      <!-- The responsiveness line. width=device-width makes the page match the device's screen width; initial-scale=1.0 sets zoom to 100%. Without this, Bootstrap's mobile layout wouldn't work -->
 
-    <title>LUQUINN'S BAKES | Guide</title>
+    <title>LUQUINN'S BAKES | Guide</title>      <!-- Text shown in the browser tab. -->
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Loads Bootstrap 5's CSS from a CDN (a hosted copy online). rel="stylesheet" says this link is a stylesheet. -->
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Loads two Google Fonts — Playfair Display (weight 700) and Poppins (weights 300/400/500). display=swap shows a fallback font first, then swaps in the real font when it loads, so text isn't invisible while fonts download. -->
 
     <link rel="stylesheet" href="css/style.css">
+    <!-- Loads your own stylesheet, from the css folder. -->
 
 </head>
 
@@ -22,15 +25,16 @@
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">   <!-- Bootstrap navbar. navbar-expand-lg means: show the full horizontal menu on large screens, collapse it into a hamburger button below "large." -->
 
-        <div class="container">
+        <div class="container">     <!-- Bootstrap container centers the content and gives it a max-width with side margins, so the nav doesn't stretch edge-to-edge. -->
 
             <a class="navbar-brand" href="ahomepage.html">
 
                 LUQUINN'S BAKES
 
             </a>
+            <!-- The site name/logo link. navbar-brand is Bootstrap's styling for the brand; clicking it goes to the homepage. -->
 
             <button class="navbar-toggler"
                 type="button"
@@ -40,10 +44,13 @@
                 <span class="navbar-toggler-icon"></span>
 
             </button>
+            <!-- The hamburger button shown on small screens. data-bs-toggle="collapse" + data-bs-target="#navbarNav" tell Bootstrap's JavaScript: when clicked, show/hide the element with id navbarNav. The <span> is the three-line icon. -->
 
             <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- The menu that collapses. collapse hides it on small screens until the hamburger is tapped; its id matches the button's target. -->
 
                 <ul class="navbar-nav ms-auto">
+                    <!-- The list of nav links. ms-auto = "margin-start auto," which pushes the links to the right side of the bar. -->
 
                     <li class="nav-item">
                         <a class="nav-link" href="ahomepage.html">Home</a>
@@ -82,6 +89,7 @@
             </p>
 
         </section>
+        <!-- The page heading block. container centers it, my-5 adds large vertical margin (top and bottom, Bootstrap spacing scale), text-center centers the text. <h1> is the main page heading (only one per page). -->
 
         <section class="container my-5">
 
@@ -106,6 +114,7 @@
             </ul>
 
         </section>
+        <!-- The tips section: an <h2> subheading and an unordered list (<ul>) of five <li> items. Plain bulleted list. -->
 
 <!-- ================= INGREDIENT CONVERTER ================= -->
 
@@ -118,20 +127,25 @@
         <p>Quickly convert common baking measurements.</p>
 
     </div>
+    <!-- Converter heading, centered. -->
 
     <div class="converter">
+        <!-- The white card wrapping the whole converter. .converter is styled in style.css (border, padding, rounded corners). -->
 
         <div class="conv-tabs">
             <button type="button" class="conv-tab active" data-mode="weight">Cups &rarr; Grams</button>
             <button type="button" class="conv-tab" data-mode="volume">Tbsp/Tsp &rarr; ml</button>
             <button type="button" class="conv-tab" data-mode="temp">&deg;C &harr; &deg;F</button>
         </div>
+        <!-- The three tab buttons. data-mode is a custom data attribute — your JavaScript reads it to know which panel to show. active marks the default (weight) tab. &rarr;, &harr;, &deg; are HTML entities for → ↔ ° (safer than pasting the raw symbols). A tutor might ask "how does the button know which panel to open?" — answer: the data-mode value. -->
 
         <!-- Weight: cups -> grams -->
         <div class="conv-panel" id="convWeight">
             <label>Amount in cups
                 <input type="number" id="wtCups" min="0" step="0.25" placeholder="e.g. 1.5">
             </label>
+            <!-- The weight panel. <label> wraps the text and input together (clicking the label focuses the input). type="number" shows a numeric field; min="0" blocks negatives; step="0.25" lets values change in quarter increments; placeholder is the grey hint text. id="wtCups" is how the JS grabs this input. -->
+
             <label>Ingredient
                 <select id="wtIngredient">
                     <option value="120">Plain flour</option>
@@ -142,11 +156,16 @@
                     <option value="100">Cocoa powder</option>
                 </select>
             </label>
+            <!-- The ingredient dropdown. This is the important design decision: each <option>'s value is the grams-per-cup for that ingredient (flour 120, sugar 200...). The JS reads that number to convert. Q&A gold: "why a dropdown instead of one conversion?" — because a cup of flour and a cup of sugar weigh different amounts, so grams-per-cup depends on the ingredient. -->
+
             <p class="conv-result is-empty" id="wtResult">Enter an amount to convert</p>
         </div>
+        <!-- Where the result appears. Starts with is-empty (styled lighter/smaller as a hint) and the prompt text; the JS overwrites this with the answer and removes is-empty once you type. -->
 
         <!-- Volume: tbsp/tsp -> ml -->
         <div class="conv-panel" id="convVolume" hidden>
+            <!-- The volume panel. hidden is a plain HTML attribute that hides the element — the JS toggles it so only the active tab's panel shows. Same structure as weight (an amount input, a unit dropdown where value is ml-per-unit: tbsp=15, tsp=5, and a result paragraph). -->
+
             <label>Amount
                 <input type="number" id="volAmount" min="0" step="0.5" placeholder="e.g. 2">
             </label>
@@ -161,6 +180,8 @@
 
         <!-- Temperature: C <-> F -->
         <div class="conv-panel" id="convTemp" hidden>
+            <!-- Temperature panel, also hidden. Here the dropdown values are codes (c2f, f2c) rather than numbers — the JS checks which code is selected to decide which formula to run. -->
+
             <label>Temperature
                 <input type="number" id="tempValue" step="1" placeholder="e.g. 180">
             </label>
@@ -188,6 +209,7 @@
             <div class="table-responsive">
 
                 <table class="table table-bordered">
+                    <!-- table-responsive makes the table scroll sideways on small screens instead of overflowing. table + table-bordered are Bootstrap table styles (borders on all cells). -->
 
                     <thead>
 
@@ -202,6 +224,7 @@
                         </tr>
 
                     </thead>
+                    <!-- <thead> = table header section; <tr> = table row; <th> = header cell (bold, and semantically "this labels a column"). -->
 
                     <tbody>
 
@@ -256,6 +279,7 @@
                         </tr>
 
                     </tbody>
+                    <!-- <tbody> = the data rows. Each <tr> is a row; <td> = a normal data cell. Five rows, one per essential. -->
 
                 </table>
 
@@ -279,10 +303,12 @@ simple baking techniques and helpful tips.
 </p>
 
     </div>
+    <!-- Video heading + description. mb-4 adds margin below the paragraph (this is the gap above the video you asked me to match). -->
 
     <div class="row justify-content-center">
 
         <div class="col-lg-8">
+            <!-- Bootstrap grid: a row containing one column. col-lg-8 = 8 of 12 grid columns wide on large screens (so the video isn't full width); justify-content-center centers that column horizontally. -->
 
             <div class="ratio ratio-16x9">
 
@@ -295,6 +321,7 @@ simple baking techniques and helpful tips.
                 </iframe>
 
             </div>
+            <!-- ratio ratio-16x9 is Bootstrap's trick to keep the video at a 16:9 shape at any width (responsive video). The <iframe> embeds the YouTube video — /embed/ is YouTube's embeddable URL form. allowfullscreen enables the fullscreen button; allow lists permissions the embed may use. -->
 
             <p class="video-credit">
 
@@ -303,6 +330,7 @@ simple baking techniques and helpful tips.
                    target="_blank" rel="noopener">YouTube</a>.
 
             </p>
+            <!-- The credit line. &amp; is the entity for &. target="_blank" opens the link in a new tab; rel="noopener" is a security best-practice that stops the new tab from being able to access your page. .video-credit styling lives in style.css. -->
 
         </div>
 
@@ -325,10 +353,13 @@ simple baking techniques and helpful tips.
         </div>
 
     </footer>
+    <!-- Semantic footer, centered copyright line. Styled brown via footer rules in style.css. -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Loads Bootstrap's JavaScript — needed for the hamburger menu to open/close. Placed at the end of <body> so the page content loads first (faster perceived load, and the elements exist before the script runs). -->
 
     <script src="js/script.js"></script>
+    <!-- Loads your own JavaScript (the converter logic, tip, validation). Also at the end, after Bootstrap. -->
 
 </body>
 

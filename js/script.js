@@ -26,10 +26,17 @@ const bakingTips = [
     "Test cakes with a toothpick before removing them from the oven."
 
 ];
+// const declares a constant — a variable whose reference won't be reassigned. 
+// bakingTips is an array (the [ ]) holding seven strings. 
+// Each string is one tip, separated by commas.
 
 // Find the tip placeholder. It only exists on the page that shows a tip,
 // so we check it exists first (prevents errors on the other pages).
 let tipText = document.getElementById("tipText");
+// let declares a variable that can be reassigned. 
+// document.getElementById("tipText") searches the page for the element whose id is tipText and returns it. 
+// On pages that don't have that element, this returns null. 
+// document is the page; getElementById is the standard way JS reaches into the HTML.
 
 if (tipText) {
     // Math.random() gives 0-1; times the array length and floored

@@ -87,6 +87,7 @@
             </p>
 
         </section>
+        <!-- The confirmation message. container centers and width-limits; my-5 large vertical margin; text-center centers the text. <h1> is the page's main heading. This is static text — it always says "Thank You!" regardless of what was submitted. -->
 
         <section class="container mb-5">
 
@@ -95,12 +96,16 @@
                 Submission Summary
 
             </h2>
+            <!-- Section holding the results table. mb-5 = margin below; the <h2> is centered with mb-4 (margin below the heading). -->
 
             <div class="table-responsive">
+                <!-- table-responsive lets the table scroll sideways on small screens instead of overflowing. -->
 
                 <table class="table table-bordered">
+                    <!-- table table-bordered are Bootstrap table styles (borders on every cell). -->
 
                     <tbody>
+                    <!-- The table body. Notice there's no <thead> here — unlike the Baking Essentials table on the guide page. That's deliberate: this table has no column headings across the top. Instead, each row is a label-and-value pair, so the "headers" run down the left side. -->
 
                         <tr>
 
@@ -109,6 +114,8 @@
                             <td id="displayName"></td>
 
                         </tr>
+                        <!-- <th>Name</th> — a header cell used as the row label on the left. <th> isn't only for the top of a table; used at the start of a row it labels that row. -->
+                        <!-- <td id="displayName"></td> — a data cell that is empty in the HTML. The id is the hook your JavaScript uses to find this cell and fill it. This is the critical bit: the page ships blank, and script.js writes the submitted value in here. -->
 
                         <tr>
 
@@ -141,12 +148,16 @@
                             <td id="displayMessage"></td>
 
                         </tr>
+                        <!-- The same pattern repeated for the other four fields. -->
+                        <!-- Each has a left-side label (<th>) and an empty <td> with a unique id: displayEmail, displayPhone, displayTopic, displayMessage. -->
+                        <!-- These five ids exactly match what script.js looks for — that's how the data lands in the right rows. -->
 
                     </tbody>
 
                 </table>
 
             </div>
+            <!-- Closes the table body, table, and the responsive wrapper. -->
 
             <div class="text-center mt-4">
 
@@ -158,10 +169,14 @@
                 </a>
 
             </div>
+            <!-- A centered link styled as a button (btn btn-dark — Bootstrap button, recolored brown by your CSS). -->
+            <!-- mt-4 = margin above it. It's an <a> (link), not a <button> — because it just navigates to another page rather than submitting anything. -->
+            <!-- Small Q&A-worthy distinction: use <a> for "go somewhere," <button> for "do something." -->
 
         </section>
 
     </main>
+    <!-- Closes the section and <main>. -->
 
     <footer>
 

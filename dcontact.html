@@ -91,10 +91,12 @@
             </div>
 
         </section>
+        <!-- Page intro. container centers and width-limits it; my-5 is large vertical margin; text-center centers the text. <h1> is the page's main heading. The paragraph is the intro line we reworded to signal the "general questions / suggestions" purpose. -->
 
         <section class="container mb-5">
 
             <div class="row">
+                <!-- A new section holding the image and form side by side. mb-5 is margin-bottom only (no top, so it sits closer to the heading). row starts a Bootstrap grid row. -->
 
                 <!-- IMAGE -->
 
@@ -105,14 +107,24 @@
                         alt="Contact">
 
                 </div>
+                <!-- Left column. col-lg-5 = 5 of 12 grid columns wide on large screens (below "large" it stacks full-width). The <img>: -->
+                <!-- src="images/contact image.jpg" — the file path. Flag: this has a space in the filename. It works, but the actual file in your images folder must be named exactly contact image.jpg or the image breaks. -->
+                <!-- img-fluid — Bootstrap class making the image scale to fit its container (responsive image). -->
+                <!-- rounded — Bootstrap class for rounded corners. -->
+                <!-- contact-img — your own class (styled in style.css: caps the height and uses object-fit: cover so the photo fills the space without distorting). -->
+                <!-- alt="Contact" — text shown if the image fails to load, and read aloud by screen readers. Rubric point: every image should have alt. -->
 
                 <!-- FORM -->
 
                 <div class="col-lg-7">
+                    <!-- Right column, col-lg-7 = 7 of 12 wide. 5 + 7 = 12, so image and form fill the row exactly. -->
 
                     <form action="eresponse.html"
       method="get"
       onsubmit="return validateForm()">
+        <!-- action="eresponse.html" — where the form data is sent when submitted (the response/Thank-You page). -->
+        <!--method="get" — how it's sent. GET appends the data to the URL as query parameters (eresponse.html?name=...). Q&A question you should prepare: "why GET?" — it's simple and lets the response page read the values straight from the URL. The honest trade-off: GET puts data in the URL/browser history, so a real contact form would normally use POST.  -->
+        <!-- onsubmit="return validateForm()" — when the user submits, run validateForm() (in script.js). If it returns false, the return cancels the submission; if true, the form proceeds. This is how your JavaScript validation hooks into the form. -->
 
                         <div class="mb-3">
 
@@ -127,6 +139,11 @@
     id="name"
     class="form-control"
     name="name">
+    <!-- One field group. mb-3 = margin below it (spacing between fields). <label> is the field caption; form-label is Bootstrap's label styling. The <input>: -->
+    <!-- type="text" — a single-line text box. -->
+    <!-- id="name" — how validateForm() grabs this field's value (document.getElementById("name")). -->
+    <!-- form-control — Bootstrap styling for form inputs (full width, padding, border). -->
+    <!-- name="name" — the key used in the URL when submitted (?name=...). Important distinction a tutor may probe: id is for JavaScript to find it; name is what gets sent in the form data. Both happen to be "name" here, but they do different jobs. -->
 
                         </div>
 
@@ -143,6 +160,7 @@
     id="email"
     class="form-control"
     name="email">
+    <!-- Email field. type="email" hints to browsers/phones that this is an email (mobile shows an @ keyboard). Your JS also checks it contains "@". -->
 
                         </div>
 
@@ -160,6 +178,7 @@
                                 name="phone">
 
                         </div>
+                        <!-- Phone field. type="tel" brings up a numeric keypad on phones. Note: this input has name="phone" but no id — because validateForm() doesn't check phone (it's optional), so it doesn't need an id for JS to find it. It still has name so it's included in the submitted data. -->
 
                         <div class="mb-3">
 
@@ -182,6 +201,7 @@
                             </select>
 
                         </div>
+                        <!-- form-select is Bootstrap's dropdown styling. name="topic" is its data key. Each <option> is a choice — here the visible text is the value (no value attribute), so whichever is selected gets sent as topic=General Question, etc. -->
 
                         <div class="mb-3">
 
@@ -196,6 +216,7 @@
     class="form-control"
     rows="5"
     name="message"></textarea>
+    <!-- The message box. <textarea> is a multi-line input (vs single-line <input>). rows="5" sets its starting height to 5 lines. Has id="message" because validateForm() checks it isn't empty, and name="message" for submission. -->
 
                         </div>
 
@@ -206,9 +227,11 @@
                             Submit
 
                         </button>
+                        <!-- The submit button. type="submit" triggers the form's submission (and therefore onsubmit/validateForm). btn btn-dark are Bootstrap button styles (your CSS recolors btn-dark brown). -->
 
                         <p id="response"
    class="mt-3 fw-bold">
+   <!-- An empty paragraph where validateForm() writes its error or success message. mt-3 = margin above it; fw-bold = bold text. It starts empty and gets filled by JavaScript. This is the element your validation targets with getElementById("response"). -->
 
 </p>
 
@@ -225,6 +248,7 @@
             <h2 class="text-center mb-4">Contact Information</h2>
 
             <div class="contact-info">
+                <!-- The info section (this replaced the old stranded centered text). .contact-info is your class (styled in style.css as a flex row that wraps). -->
 
                 <div class="contact-item">
                     <span class="contact-label">Email</span>
@@ -242,6 +266,7 @@
                 </div>
 
             </div>
+            <!-- One info card. .contact-item styles it as a bordered white box; the two <span>s hold a small uppercase label and the value below it (styled by .contact-label and .contact-value). <span> is an inline container with no meaning of its own — just a styling hook. The Phone and Location cards repeat this exact structure. -->
 
         </section>
 
