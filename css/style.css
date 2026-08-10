@@ -310,84 +310,6 @@ html{
 
 }
 
-/* ================= Recipe Content ================= */
-
-.recipe-content h2{
-
-    margin-bottom:10px;
-
-}
-
-.recipe-content .text-muted{
-
-    font-size:14px;
-    margin-bottom:25px;
-
-}
-
-.recipe-content h4{
-
-    font-size:1.3rem;
-    margin-bottom:12px;
-
-}
-
-.recipe-content ul,
-.recipe-content ol{
-
-    padding-left:20px;
-
-}
-
-.recipe-content li{
-
-    font-size:16px;
-    line-height:1.6;
-    margin-bottom:6px;
-
-}
-
-.recipe-columns{
-
-    display:flex;
-
-    align-items:flex-start;
-
-    gap:40px;
-
-}
-
-.ingredients{
-
-    width:250px;
-
-}
-
-.method{
-
-    width:300px;
-
-}
-
-@media (max-width:768px){
-
-    .recipe-columns{
-
-        flex-direction:column;
-
-        gap:20px;
-
-    }
-
-    .ingredients,
-    .method{
-
-        width:100%;
-
-    }
-
-}
-
 
 /* ==========================================================
    RELOCATED COMPONENT STYLES
@@ -523,3 +445,26 @@ html{
             color:#5A4423;
             font-weight:500;
         }
+
+/* ===== About Us section: wider gap between image and text ===== */
+/* Only on large screens (>=992px) where the two columns sit side by side.
+   Below that they stack, so no left indent is needed. */
+@media (min-width:992px){
+    .about-section .col-lg-7{
+        padding-left:3rem;
+    }
+}
+
+/* ===== Image credits line (homepage footer) ===== */
+.image-credits{
+    font-size:0.78rem;
+    margin-top:0.4rem;
+    opacity:0.85;
+}
+.image-credits a{
+    color:var(--yellow);
+    text-decoration:none;
+}
+.image-credits a:hover{
+    text-decoration:underline;
+}
