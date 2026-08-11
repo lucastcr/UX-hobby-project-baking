@@ -366,12 +366,12 @@ Here: remove the featured-text indent (since columns stack at that width) and sh
             background:#fff;
             border:1px solid #E5D3B3;
             border-radius:8px;
-            overflow:hidden;
+            overflow:hidden;                        /* overflow:hidden so nothing (like the image corners) spills past the rounded edges. */
         }
-        /* overflow:hidden so nothing (like the image corners) spills past the rounded edges. */
 
-        .simple-recipe .sr-head{ display:flex; }    /* .sr-head is a flexbox row (image + title side by side). */
-        .simple-recipe .sr-img{                     /* .sr-img is a fixed 210px-wide image */
+        .simple-recipe .sr-head{ display:flex; }    /* .sr-head is a flexbox row which puts the image + title side by side. */
+
+        .simple-recipe .sr-img{                     /* fixed 210px wide, .sr-img is a fixed 210px-wide image */
             width:210px; flex-shrink:0;             /* flex-shrink:0 stops it shrinking */
             object-fit:cover;                       /* object-fit:cover crops it to fill */
             align-self:stretch;                     /* align-self:stretch makes it stretch to the row's full height; */
@@ -379,7 +379,7 @@ Here: remove the featured-text indent (since columns stack at that width) and sh
         }
         
         .simple-recipe .sr-headtext{
-            flex:1; padding:1.5rem 1.75rem;
+            flex:1; padding:1.5rem 1.75rem;         /* flex:1 = take the remaining width. */
             display:flex; flex-direction:column; justify-content:center;
             border-bottom:1px solid #E5D3B3;
         }
@@ -387,24 +387,47 @@ Here: remove the featured-text indent (since columns stack at that width) and sh
         a vertical flexbox that centres its content vertically (justify-content:center), 
         with a divider line under it. */
 
-        .simple-recipe .sr-headtext h2{
-            color:#5A4423; font-size:1.7rem; margin-bottom:.4rem;
+        .simple-recipe .sr-headtext h2{             /* Recipe title. */
+            color:#5A4423;                       
+            font-size:1.7rem; 
+            margin-bottom:.4rem;
         }
 
-        .simple-recipe .sr-meta{ color:#86703F; font-size:.92rem; margin:0; }
-        .simple-recipe .sr-body{ display:grid; grid-template-columns:1fr 1fr; }     /* The Ingredients/Method area is a grid with two equal columns. */
-                                                                                    /* 1fr 1fr = "two columns, each one fraction (equal share) of the width." */
-        .simple-recipe .sr-col:first-child{ border-right:1px solid #E5D3B3; }
-        .simple-recipe .sr-col{ padding:1.5rem 1.75rem; }                           
+        .simple-recipe .sr-meta{                    /* The difficulty/time/makes line under the title. */
+            color:#86703F; 
+            font-size:.92rem; 
+            margin:0; 
+        }
+
+        .simple-recipe .sr-body{ 
+            display:grid;                           /* The Ingredients/Method area is a grid with two equal columns. */
+            grid-template-columns:1fr 1fr;          /* 1fr 1fr = "two columns, each one fraction (equal share) of the width." */
+        }
+
+        .simple-recipe .sr-col:first-child{         /* :first-child targets only the first column (Ingredients), giving it a right border, the divider line between the two columns. */
+            border-right:1px solid #E5D3B3; 
+        }
+
+        .simple-recipe .sr-col{ 
+            padding:1.5rem 1.75rem; 
+        } 
+
         .simple-recipe .sr-col h3{
-            color:#5A4423; font-size:1.2rem; margin-bottom:1rem;
-            padding-bottom:.5rem; border-bottom:1px solid #E5D3B3;
+            color:#5A4423; 
+            font-size:1.2rem; 
+            margin-bottom:1rem;
+            padding-bottom:.5rem; 
+            border-bottom:1px 
+            solid #E5D3B3;
         }
 
         .simple-recipe .sr-col ul,
         .simple-recipe .sr-col ol{ padding-left:1.2rem; margin:0; }
         .simple-recipe .sr-col li{
-            margin-bottom:.5rem; color:#5A4423; font-size:.95rem; line-height:1.6;
+            margin-bottom:.5rem; 
+            color:#5A4423; 
+            font-size:.95rem; 
+            line-height:1.6;        /* line-height:1.6 spaces the lines for readability. */
         }
 
         @media (max-width:640px){
@@ -416,30 +439,63 @@ Here: remove the featured-text indent (since columns stack at that width) and sh
             }
         }
 
+        /* Responsive for phones (≤640px): stack the header vertically (image above title), 
+        make the image full-width, collapse the two grid columns into one (1fr), 
+        and switch the Ingredients divider from a right border to a bottom border (since the columns are now stacked). */
+
 /* ===== Ingredient converter + video credit (used on cguide.html) ===== */
 /* ===== Ingredient converter ===== */
 
         .converter{
-            max-width:none; margin:1.5rem 0 0;
-            background:#fff; border:1px solid #E5D3B3;
-            border-radius:10px; padding:1.5rem;
+            max-width:none;         /* max-width:none = full width (same as table width) */
+            margin:1.5rem 0 0;      /* margin:1.5rem 0 0 = space on top only. */
+            background:#fff; 
+            border:1px solid #E5D3B3;
+            border-radius:10px; 
+            padding:1.5rem;
         }
 
-        .conv-tabs{ display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1.4rem; }
+        .conv-tabs{ 
+            display:flex; 
+            flex-wrap:wrap;         /* The tab-button row: a flexbox that wraps to a new line if the buttons don't fit, with gaps between them. */
+            gap:.5rem; 
+            margin-bottom:1.4rem; 
+        }
+        
         .conv-tab{
-            flex:1; min-width:120px;
-            padding:.55rem .5rem; cursor:pointer;
-            background:#F6EDCE; color:#7A6338;
-            border:1px solid #E5D3B3; border-radius:999px;
-            font-size:.9rem; font-family:inherit;
-            transition:background .15s, color .15s;
+            flex:1;                                     /* flex:1 = share width equally */
+            min-width:120px;                            /* min-width:120px keeps them from getting too narrow. */
+            padding:.55rem .5rem; 
+            cursor:pointer;                             /* cursor:pointer shows a hand cursor. */
+            background:#F6EDCE; 
+            color:#7A6338;
+            border:1px solid #E5D3B3; 
+            border-radius:999px;                        /* border-radius:999px makes fully-rounded pill ends. */
+            font-size:.9rem; 
+            font-family:inherit;                        /* font-family:inherit uses the page font (buttons default to their own). */
+            transition:background .15s, color .15s;     /* transition:background .15s, color .15s animates background and colour changes over 0.15 seconds, so hover/active changes fade smoothly. */
         }
 
-        .conv-tab:hover{ background:#EFE0BC; }
-        .conv-tab.active{ background:#5A4423; color:#FFFAE8; border-color:#5A4423; }
-        .conv-panel{ display:flex; flex-wrap:wrap; gap:1rem; align-items:flex-end; }
-        .conv-panel[hidden]{ display:none !important; }
-        .conv-panel label{
+        .conv-tab:hover{ 
+            background:#EFE0BC;                       /* Hover slightly darkens the tab. */
+        }
+
+        .conv-tab.active{                               /* The active tab (class set by your JavaScript) turns solid brown with cream text, so the selected one stands out. */
+            background:#5A4423; 
+            color:#FFFAE8; 
+            border-color:#5A4423; 
+        }
+
+        .conv-panel{ 
+            display:flex; 
+            flex-wrap:wrap; 
+            gap:1rem; 
+            align-items:flex-end;                       /* align-items:flex-end makes each panel a flexbox row of inputs, bottom-aligned */
+        }
+
+        .conv-panel[hidden]{ display:none !important; } /* [hidden] targets any panel that has the hidden attribute and forces it invisible with !important */
+        
+        .conv-panel label{                              /* Each label stacks its caption above its input (flex-direction:column) and shares width with the others. */
             flex:1; min-width:150px;
             display:flex; flex-direction:column; gap:.35rem;
             color:#5A4423; font-size:.9rem;
@@ -456,16 +512,21 @@ Here: remove the featured-text indent (since columns stack at that width) and sh
         }
 
         .conv-result{
-            flex-basis:100%; margin:.4rem 0 0; text-align:center;
-            font-size:1.4rem; color:#5A4423; font-weight:500;
-            padding-top:1rem; border-top:1px solid #F0E4C6;
+            flex-basis:100%;                    /* flex-basis:100% forces it onto its own full-width row below the inputs. Big, centred, bold, with a divider line above */
+            margin:.4rem 0 0; 
+            text-align:center;
+            font-size:1.4rem; 
+            color:#5A4423; 
+            font-weight:500;
+            padding-top:1rem; 
+            border-top:1px solid #F0E4C6;
         }
 
-        .conv-result.is-empty{
+        .conv-result.is-empty{                  /* .is-empty (added/removed by your JavaScript) makes the starting prompt smaller and lighter so it reads as a hint, not a result. */
             font-size:1rem; color:#9C8557; font-weight:400;
         }
 
-        .video-credit{
+        .video-credit{                          /* The small centred credit line under the guide video, with a brown link. */
             text-align:center;
             font-size:.85rem;
             color:#9C8557;
@@ -480,7 +541,7 @@ Here: remove the featured-text indent (since columns stack at that width) and sh
         .contact-img{
             width:100%;
             max-height:520px;
-            object-fit:cover;
+            object-fit:cover;                   /* object-fit:cover is cropped to fill. The height cap stops a tall photo from towering over the form. */
         }
 
         .contact-info{
@@ -505,8 +566,8 @@ Here: remove the featured-text indent (since columns stack at that width) and sh
 
         .contact-label{
             font-size:.8rem;
-            text-transform:uppercase;
-            letter-spacing:.08em;
+            text-transform:uppercase;   /* text-transform:uppercase forces capital letters; */
+            letter-spacing:.08em;       /* letter-spacing:.08em widens the gaps between letters and the value below it. */
             color:#9C8557;
         }
 
@@ -526,19 +587,6 @@ Here: remove the featured-text indent (since columns stack at that width) and sh
     }
 }
 
-/* ===== Image credits line (homepage footer) ===== */
-
-.image-credits{
-    font-size:0.78rem;
-    margin-top:0.4rem;
-    opacity:0.85;
-}
-
-.image-credits a{
-    color:var(--yellow);
-    text-decoration:none;
-}
-
-.image-credits a:hover{
-    text-decoration:underline;
-}
+/* The About Us spacing. 
+Note min-width:992px = "on large screens and up" (opposite of your max-width queries). 
+It adds left padding to the About text column, but only when image and text are side by side; below 992px they stack, so no indent applies. */ 

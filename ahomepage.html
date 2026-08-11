@@ -23,9 +23,11 @@
 
     <!-- ================= NAVIGATION ================= -->
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">       
+    <!-- Bootstrap navbar. navbar-expand-lg = show the full horizontal menu on large screens, collapse to a hamburger below "large." -->
 
         <div class="container">
+        <!-- Bootstrap container — centers content and gives it a max-width with side margins. -->
 
             <a class="navbar-brand" href="ahomepage.html">
                 LUQUINN'S BAKES
@@ -39,10 +41,15 @@
                 <span class="navbar-toggler-icon"></span>
 
             </button>
+            <!-- The hamburger button, shown on small screens. 
+            data-bs-toggle="collapse" + data-bs-target="#navbarNav" tell Bootstrap's JavaScript: on click, show/hide the element with id navbarNav. 
+            The <span> is the three-line icon. -->
 
             <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- The menu that collapses. collapse hides it on small screens until the hamburger is tapped; its id matches the button's target. -->
 
                 <ul class="navbar-nav ms-auto">
+                <!-- The list of nav links. ms-auto = margin-start auto, pushing the links to the right side of the bar. -->
 
                     <li class="nav-item">
                         <a class="nav-link active" href="ahomepage.html">Home</a>
@@ -73,10 +80,13 @@
         <!-- ================= WELCOME ================= -->
 
         <section class="container my-5">
+        <!-- The hero section. container centers/limits width; my-5 = large vertical margin (top and bottom). -->
 
             <div class="row align-items-center">
+            <!-- A Bootstrap grid row. align-items-center vertically centers the columns against each other, so the text and image line up in the middle rather than at the top. -->
 
                 <div class="col-lg-6">
+                <!-- Left column, col-lg-6 = 6 of 12 grid columns (half width) on large screens. -->
 
                     <h1>Welcome to LUQUINN'S BAKES</h1>
 
@@ -90,6 +100,7 @@
                     </p>
 
                     <a href="brecipes.html" class="btn btn-dark">
+                    <!-- A link styled as a button -->
 
                         View Recipes
 
@@ -98,14 +109,14 @@
                 </div>
 
                 <div class="col-lg-6 text-center">
-
-                    <!-- Replace with your own image -->
-
                     <img src="images/hero image.jpg"
-                         class="img-fluid rounded"
+                         class="img-fluid rounded"      
                          alt="Homepage">
 
                 </div>
+                <!-- img-fluid scales the hero image to responsively to fit 
+                rounded gives rounded corners
+                alt="Homepage" is fallback/screen-reader text -->
 
             </div>
 
@@ -116,13 +127,11 @@
         <!-- ================= ABOUT ================= -->
 
         <section class="container my-5 about-section">
+        <!-- about-section class is custom hook so the CSS can add the wider image-to-text gap only to this section. -->
 
             <div class="row align-items-center">
 
                 <div class="col-lg-5 text-center">
-
-                    <!-- Replace with your own image -->
-
                     <img src="images/pplbakingtgt.jpg"
                          class="img-fluid rounded"
                          alt="About Us">
@@ -162,6 +171,7 @@
         <section class="container my-5">
 
             <h2 class="text-center mb-4">
+            <!-- text-center = Centered heading, mb-4 = margin below -->
 
                 Explore Our Website
 
@@ -296,14 +306,12 @@
             <div class="row align-items-center">
 
                 <div class="col-lg-5 text-center">
-
-                    <!-- Replace with your own image -->
-
                     <img src="images/choco cake square.jpeg"
                         class="img-fluid rounded"
                         alt="Chocolate Cake">
 
                 </div>
+                <!-- Another vertically-centered two-column row. Left column (col-lg-5) holds the cake image. -->
 
                 <div class="col-lg-6 featured-text">
 
@@ -354,17 +362,6 @@
             <p>
 
                 © 2026 LUQUINN'S BAKES. All rights reserved.
-
-            </p>
-
-            <p class="image-credits">
-
-                Image credits:
-                <a href="https://www.pexels.com/photo/people-preparing-food-7489001/"
-                   target="_blank" rel="noopener">Welcome Image by Gustavo Fring on Pexels</a>
-                &nbsp;·&nbsp;
-                <a href="https://stockcake.com/i/delicious-bakery-spread_1372933_589275"
-                   target="_blank" rel="noopener">About Us image from StockCake</a>
 
             </p>
 

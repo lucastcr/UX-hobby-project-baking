@@ -73,6 +73,9 @@
         <!-- ================= PAGE TITLE ================= -->
 
         <section class="container text-center my-5">
+        <!-- centered intro block. container centers/limits width
+            text-center centers the text
+            my-5 = large vertical margin. -->
 
             <h1>Our Recipes</h1>
 
@@ -88,22 +91,36 @@
         <!-- ================= OUR RECIPES ================= -->
 
 <section class="container mb-5">
+<!-- mb-5 = margin below. -->
 
     <div class="row justify-content-center g-4">
+    <!-- row starts the grid
+    justify-content-center centers the cards horizontally
+    g-4 is Bootstrap's gutter class, it adds spacing between grid columns (both horizontal and vertical)
+    -->
 
         <!-- Chocolate Cake -->
 
         <div class="col-lg-4 col-md-6">
+        <!-- Two responsive widths:
+        col-lg-4 = 4 of 12 (a third) on large screens → 3 cards per row
+        col-md-6 = 6 of 12 (half) on medium screens → 2 cards per row
+        on small screens (no class given) it defaults to full width → 1 per row.
+        the card count adapts to screen size.
+        -->
 
             <div class="card h-100">
+            <!-- h-100 = full height -->
 
                 <img src="images/choco cake square.jpeg"
                     class="card-img-top"
                     alt="Chocolate Cake">
+                    <!-- card-img-top is Bootstrap's style for an image at the top of a card (rounds the top corners to match). -->
 
                 <div class="card-body">
 
                     <h4 class="card-title">
+                    <!-- card-title styles the card's heading. -->
 
                         Chocolate Cake
 
@@ -119,16 +136,20 @@
                     <p>
 
                         <strong>Difficulty:</strong> Medium
+                        <!-- <strong> makes text bold and carries semantic "importance" meaning -->
 
                     </p>
 
                     <p>
 
                         <strong>Time:</strong> 45 mins
+                        <!-- <strong> makes text bold and carries semantic "importance" meaning -->
 
                     </p>
 
                     <a href="#cake" class="btn btn-dark">
+                    <!-- href="#cake" is an anchor link — it jumps down the same page to the element with id="cake". 
+                     The # means "an id on this page," -->
 
                         View Recipe
 
@@ -360,8 +381,13 @@
     </div>
 
     <div class="table-responsive">
+    <!-- Wrapper that makes the table scroll sideways on small screens instead of overflowing the page. -->
 
         <table class="table table-bordered text-center align-middle">
+        <!-- table + table-bordered = Bootstrap table styling with borders on all cells 
+        text-center centers cell text
+        align-middle centers it vertically in taller rows.
+        -->
 
             <thead>
 
@@ -446,14 +472,24 @@ CHOCOLATE CAKE
 ========================================================== -->
 
 <section id="cake" class="container my-5">
+<!-- id="cake" is the target the browse card's href="#cake" jumps to. So clicking "View Recipe" up top scrolls here. -->
 
     <article class="simple-recipe">
+    <!-- <article> is a semantic tag for a self-contained piece of content -->
 
         <div class="sr-head">
+        <!-- sr-head is a flexbox putting the image and text side by side. -->
+
             <img class="sr-img" src="images/choco cake square.jpeg" alt="Chocolate Cake">
+            <!-- sr-img is the full-height recipe image. -->
+
             <div class="sr-headtext">
+            <!-- sr-headtext holds the title (<h2>) and the meta line. -->
+
                 <h2>Chocolate Cake</h2>
                 <p class="sr-meta">Difficulty: Medium &nbsp;|&nbsp; Total Time: 45 mins &nbsp;|&nbsp; Makes: 1 Cake</p>
+                <!-- &nbsp; is a non-breaking space — a space that won't collapse or line-break, used here around the | separators so they stay evenly spaced. -->
+                 
             </div>
         </div>
 
