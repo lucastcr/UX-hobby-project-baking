@@ -59,8 +59,16 @@ rem scales with the base font size (1rem ≈ 16px). */
 .navbar-brand{
 
     color:var(--cream);
+    transition:color 0.2s;
 
 }
+
+.navbar-brand:hover{
+
+    color:var(--yellow);
+
+}
+/* the brand/logo turns yellow when hovered. transition makes the colour fade smoothly over 0.2s. */
 
 .navbar .nav-link{
 
@@ -603,26 +611,21 @@ It adds left padding to the About text column, but only when image and text are 
     }
     .row.align-items-center > [class*="col-"]:last-child{
     /* This removes the bottom margin from the last column in each row, :last-child is a pseudo-class meaning "only the final one." */
-
         margin-bottom:0;
     }
-}
 
-
-@media (max-width:991px){
     .featured-text{
+    /* pads the Featured Bake text so it doesn't touch the screen edge when stacked */
         padding-left:1rem;
         padding-right:1rem;
     }
-}
 
-
-/* ===== Homepage: push first section to the top on mobile ===== */
-@media (max-width:991px){
     main{
+    /* remove main's top padding on mobile so content can sit higher */
         padding-top:0;
     }
     main > section:first-of-type{
+    /* the first section inside main (the hero) — pull it up near the nav, with a small cushion */
         margin-top:0;
         padding-top:0.5rem;
     }

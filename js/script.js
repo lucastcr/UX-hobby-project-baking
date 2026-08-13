@@ -40,12 +40,11 @@ function validateForm() {
         return false;
     }
 
-    // Simple email check: it must contain an "@".
-    // indexOf returns -1 when "@" is not found in the string.
-    if (email.indexOf("@") === -1) {
-        response.innerHTML = "Please enter a valid email address.";
-        return false;
-    }
+    // Email must contain "@" and a "." after it (e.g. name@example.com)
+if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+    response.innerHTML = "Please enter a valid email address, e.g. name@example.com";
+    return false;
+}
 
     // Message must not be blank
     if (message === "") {
