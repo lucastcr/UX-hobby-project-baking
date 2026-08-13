@@ -590,3 +590,40 @@ Here: remove the featured-text indent (since columns stack at that width) and sh
 /* The About Us spacing. 
 Note min-width:992px = "on large screens and up" (opposite of your max-width queries). 
 It adds left padding to the About text column, but only when image and text are side by side; below 992px they stack, so no indent applies. */ 
+
+/* ===== Homepage on mobile ===== */
+
+@media (max-width:991px){
+    /* the rules inside @media only apply when the screen is 991px wide or narrower */
+
+    .row.align-items-center > [class*="col-"]{
+    /* .row.align-items-center — an element with both the row and align-items-center classes (no space between them = same element). */
+    /* [class*="col-"] is an attribute selector, any element whose class attribute contains the text "col-". */
+        margin-bottom:1.5rem;
+    }
+    .row.align-items-center > [class*="col-"]:last-child{
+    /* This removes the bottom margin from the last column in each row, :last-child is a pseudo-class meaning "only the final one." */
+
+        margin-bottom:0;
+    }
+}
+
+
+@media (max-width:991px){
+    .featured-text{
+        padding-left:1rem;
+        padding-right:1rem;
+    }
+}
+
+
+/* ===== Homepage: push first section to the top on mobile ===== */
+@media (max-width:991px){
+    main{
+        padding-top:0;
+    }
+    main > section:first-of-type{
+        margin-top:0;
+        padding-top:0.5rem;
+    }
+}
