@@ -5,7 +5,7 @@
 /* A selector targets elements: .classname targets a class, tagname targets a tag, #id targets an id. */ 
 /* var(--name) pulls in a CSS variable defined at the top. */
 
-/* ===== Colour Variables ===== */
+/* Colour Variables */
 
 :root{
 
@@ -18,7 +18,7 @@
 }
 /* :root is the whole document. Variables defined here (the --name syntax) are usable everywhere via var(--name). */
 
-/* ===== Page Basics ===== */
+/* Page Basics */
 
 body{
 
@@ -48,7 +48,7 @@ main{
 /* Space inside the top and bottom of <main> so content isn't cramped. 
 rem scales with the base font size (1rem ≈ 16px). */
 
-/* ===== Navigation ===== */
+/* Navigation */
 
 .navbar{
 
@@ -86,7 +86,7 @@ rem scales with the base font size (1rem ≈ 16px). */
 /* the active link (current page) is yellow.
 .nav-link.active (no space) = an element with both classes at once. */
 
-/* ===== Buttons ===== */
+/* Buttons */
 
 .btn-dark{
 
@@ -101,10 +101,10 @@ rem scales with the base font size (1rem ≈ 16px). */
     border-color:var(--brown-light);
 
 }
-/* :hover is a pseudo-class — applies only when the mouse is over the element. 
+/* :hover is a pseudo-class, applies only when the mouse is over the element. 
 So buttons lighten on hover, giving feedback. */
 
-/* ===== Tables ===== */
+/* Tables */
 
 .table{
 
@@ -120,7 +120,7 @@ So buttons lighten on hover, giving feedback. */
     text-align:center;
 
 }
-/* .table thead th targets header cells inside the head — brown background, cream text, centred. */
+/* .table thead th targets header cells inside the head, brown background, cream text, centred. */
 
 .table td{
 
@@ -158,7 +158,7 @@ So buttons lighten on hover, giving feedback. */
 the border turns yellow and Bootstrap's default glow (box-shadow) is removed. 
 :focus = active field, pairs with :hover. */
 
-/* ===== Sticky footer (keeps footer at bottom on short pages) ===== */
+/* Sticky footer (keeps footer at bottom on short pages) */
 
 html, body{
 
@@ -174,7 +174,7 @@ body{
 
 }
 /* It makes the body a vertical flexbox (display:flex; flex-direction:column) 
-at least the full screen height (min-height:100vh — 100% of the viewport). */
+at least the full screen height (min-height:100vh 100% of the viewport). */
 
 main{
 
@@ -192,7 +192,7 @@ footer{
 
 /* Net effect: on short pages, main expands to push the footer to the bottom of the screen instead of it floating mid-page. */
 
-/* ===== Footer ===== */
+/* Footer */
 
 footer{
 
@@ -214,7 +214,7 @@ footer p{
 /* The footer's look (separate from its positioning above): full width, brown background, muted text, internal padding, space above. 
 footer p removes default paragraph margin and slightly shrinks the font. */
 
-/* ===== Cards ===== */
+/* Cards */
 
 .card{
 
@@ -254,7 +254,7 @@ so it sits flush with the body below. */
     border-radius:10px;
 
 }
-/* object-fit:cover — crops the image to fill the box without distorting it (vs stretching). */
+/* object-fit:cover crops the image to fill the box without distorting it (vs stretching). */
 
 .card .col-lg-8{
 
@@ -329,7 +329,7 @@ it stops 90px lower so the fixed navbar doesn't cover the heading. #name is an i
 }
 /* .text-muted adds spacing below muted text. */
 
-/* ===== Smooth Scrolling ===== */
+/* Smooth Scrollin */
 
 html{
 
@@ -338,7 +338,7 @@ html{
 }
 /* scroll-behavior:smooth makes anchor-link jumps glide instead of snapping. */
 
-/* ===== Responsive ===== */
+/* Responsive */
 
 @media (max-width:992px){
 
@@ -356,19 +356,19 @@ html{
     }
 
 }
-/* A media query — rules that only apply under a condition. 
+/* A media query: rules that only apply under a condition. 
 max-width:992px = "on screens 992px wide or narrower" (tablets/phones). 
 Here: remove the featured-text indent (since columns stack at that width) and shrink card headings. */
 
 
-/* ==========================================================
+/* 
    RELOCATED COMPONENT STYLES
    Moved here from inline <style> blocks in the HTML pages so that
    all CSS lives in one external stylesheet (easier to maintain).
-========================================================== */
+ */
 
-/* ===== Recipe cards (used on brecipes.html) ===== */
-/* ===== Simplified recipe cards ===== */
+/* Recipe cards (used on brecipes.html) */
+/* Simplified recipe cards */
 
         .simple-recipe{
             background:#fff;
@@ -451,8 +451,8 @@ Here: remove the featured-text indent (since columns stack at that width) and sh
         make the image full-width, collapse the two grid columns into one (1fr), 
         and switch the Ingredients divider from a right border to a bottom border (since the columns are now stacked). */
 
-/* ===== Ingredient converter + video credit (used on cguide.html) ===== */
-/* ===== Ingredient converter ===== */
+/* Ingredient converter + video credit (used on cguide.html) */
+/* Ingredient converter */
 
         .converter{
             max-width:none;         /* max-width:none = full width (same as table width) */
@@ -543,8 +543,8 @@ Here: remove the featured-text indent (since columns stack at that width) and sh
         
         .video-credit a{ color:#7A6338; }
 
-/* ===== Contact page layout (used on dcontact.html) ===== */
-/* ===== Contact page layout ===== */
+/* Contact page layout (used on dcontact.html) */
+/* Contact page layout */
 
         .contact-img{
             width:100%;
@@ -585,7 +585,7 @@ Here: remove the featured-text indent (since columns stack at that width) and sh
             font-weight:500;
         }
 
-/* ===== About Us section: wider gap between image and text ===== */
+/* About Us section: wider gap between image and text */
 /* Only on large screens (>=992px) where the two columns sit side by side.
    Below that they stack, so no left indent is needed. */
 
@@ -599,7 +599,7 @@ Here: remove the featured-text indent (since columns stack at that width) and sh
 Note min-width:992px = "on large screens and up" (opposite of your max-width queries). 
 It adds left padding to the About text column, but only when image and text are side by side; below 992px they stack, so no indent applies. */ 
 
-/* ===== Homepage on mobile ===== */
+/* Homepage on mobile */
 
 @media (max-width:991px){
     /* the rules inside @media only apply when the screen is 991px wide or narrower */

@@ -25,7 +25,7 @@ dcontact.html: Lucas
 
 eresponse.html: Lucas
 
-css: Lucas & Quinn
+style.css (css): Lucas & Quinn
 
-javascript: Lucas Thoh
+script.js (javascript): Lucas 
 

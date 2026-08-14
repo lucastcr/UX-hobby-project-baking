@@ -1,20 +1,15 @@
-// ==========================================================
 // LUQUINN'S BAKES
 // JavaScript
-// ==========================================================
 
 
-
-// ==========================================================
 // Contact Form Validation
-// ==========================================================
 
 // Runs when the contact form is submitted (see onsubmit in dcontact.html).
 // Returns false to STOP the form submitting if a field is invalid,
 // or true to allow it through to the response page.
 function validateForm() {       
     // Defines a function named validateForm. 
-    // Defining it doesn't run it — it runs when called, which happens via onsubmit="return validateForm()" on the form in dcontact.html.
+    // Defining it doesn't run it, it runs when called, which happens via onsubmit="return validateForm()" on the form in dcontact.html.
 
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
@@ -57,7 +52,7 @@ if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
     return true;
 }
 
-/* ===== Ingredient Converter (Baking Guide) =====
+/* Ingredient Converter (Baking Guide)
    Waits until the page HTML has loaded, then sets up the three converter
    tabs (weight / volume / temperature). Each result updates live as the
    user types, using input/change event listeners. */
@@ -202,9 +197,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // Write the result, remove the empty style, wire up the listeners (same pattern). 
 // The final }); closes the DOMContentLoaded function from the very start of this block.
 
-// ==========================================================
+
 // Response Page - Fill Submission Summary from URL
-// ==========================================================
 
 (function () {
     // An IIFE (Immediately Invoked Function Expression) — a function that runs itself right away (the wrapping ( ) plus the () at the very end). 
